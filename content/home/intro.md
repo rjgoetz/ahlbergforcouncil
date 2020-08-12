@@ -1,1 +1,1 @@
-An opinionated starter for using Gatsby v2 with React Context, tag-agnostic styled-components, page transitions and scroll events with IntersectionObserver.
+Joshua Ahlberg is running for Edina City Council this Fall 2020 and needs your VOTE! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id neque ac erat ornare facilisis.
