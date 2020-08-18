@@ -1,42 +1,21 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import { Header, Nav, Anchor } from 'grommet';
+import LogoImg from '../images/AFCHeroMAST.jpg';
+import styled from 'styled-components';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const StyledImage = styled.img`
+  width: 200px;
+`;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const PageHeader = () => {
+  return (
+    <Header pad="medium">
+      <StyledImage src={LogoImg} alt="Ahlberg for Council Logo" />
+      <Nav>
+        <Anchor href="/about/" label="About" />
+      </Nav>
+    </Header>
+  );
+};
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default PageHeader;
