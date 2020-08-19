@@ -38,7 +38,7 @@ const H1 = styled.h1`
     props.banner ? props.theme.rhythm(6) : props.theme.rhythm(5)};
   margin: 0 0
     ${(props) => (props.banner ? props.theme.rhythm(8) : props.theme.rhythm())};
-  text-align: ${(props) => (props.banner ? 'left' : 'right')};
+  text-align: ${(props) => (props.banner ? 'left' : 'center')};
 `;
 
 const H2 = styled.h2`
