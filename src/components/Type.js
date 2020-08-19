@@ -27,7 +27,8 @@ const P = styled.p`
 `;
 
 const H1 = styled.h1`
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) =>
+    props.banner ? props.theme.colors.white : props.theme.colors.primary};
 
   font-size: ${(props) =>
     props.banner ? props.theme.fontSize.xxl : props.theme.fontSize.xl};
@@ -37,9 +38,7 @@ const H1 = styled.h1`
     props.banner ? props.theme.rhythm(6) : props.theme.rhythm(5)};
   margin: 0 0
     ${(props) => (props.banner ? props.theme.rhythm(8) : props.theme.rhythm())};
-  text-align: center;
-
-  ${(props) => props.custom && customText};
+  text-align: ${(props) => (props.banner ? 'left' : 'right')};
 `;
 
 const H2 = styled.h2`
