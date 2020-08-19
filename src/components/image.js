@@ -1,32 +1,28 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { string, shape, bool } from 'prop-types';
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
+const Image = ({ src, srcSet, alt, responsive, ...props }) => {
+  return (
+    <img
+      src={require(`Images/${src}`)}
+      srcSet={`${require(`Images/${srcSet['1x']}`)}, ${require(`Images/${srcSet['2x']}`)} 2x`}
+      alt={alt}
+      css={`
+        width: ${responsive && '100%'};
+      `}
+      {...props}
+    ></img>
+  );
+};
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "edina-city-seal.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+Image.propTypes = {
+  src: string.isRequired,
+  srcSet: shape({
+    '1x': string.isRequired,
+    '2x': string.isRequired,
+  }).isRequired,
+  alt: string.isRequired,
+  responsive: bool,
 };
 
 export default Image;
