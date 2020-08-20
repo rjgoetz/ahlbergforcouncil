@@ -9,7 +9,7 @@ import { DollarSign } from '@styled-icons/feather';
 const StyledHeader = styled.header`
   align-items: center;
   display: flex;
-  padding: ${(props) => props.theme.rhythm(2)} 0;
+  padding: ${(props) => props.theme.rhythm()} 0;
   justify-content: space-between;
 `;
 

@@ -19,8 +19,8 @@ const StyledLinks = styled.ul`
     color: ${(props) => props.theme.colors.white};
     display: inline-block;
     font-weight: ${(props) => props.theme.fontWeight.bold};
-    line-height: ${(props) => props.theme.rhythm(6)};
-    margin-right: 15px;
+    line-height: ${(props) => props.theme.rhythm(8)};
+    margin-right: 20px;
     &:active,
     &:hover {
       text-decoration: underline;

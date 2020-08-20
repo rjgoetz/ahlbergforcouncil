@@ -1,7 +1,7 @@
 import React from 'react';
 import { string, bool } from 'prop-types';
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 import { Link } from 'gatsby';
 
 const DefaultLink = styled(Link)`
@@ -13,8 +13,8 @@ const DefaultLink = styled(Link)`
   &:active {
     color: ${(props) =>
       props.color
-        ? darken(0.1, props.theme.colors[props.color])
-        : darken(0.1, props.theme.colors.primary)};
+        ? lighten(0.3, props.theme.colors[props.color])
+        : lighten(0.3, props.theme.colors.primary)};
     text-decoration: underline;
   }
   &:focus {
@@ -31,7 +31,7 @@ const ExternalLink = styled.a`
   text-decoration: none;
   &:hover,
   &:active {
-    color: ${(props) => darken(0.1, props.theme.colors.primary)};
+    color: ${(props) => lighten(0.3, props.theme.colors.primary)};
     text-decoration: underline;
   }
   &:focus {

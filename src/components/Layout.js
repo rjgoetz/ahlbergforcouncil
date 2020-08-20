@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Theme from 'Styles/Theme';
 import GlobalStyle from 'Styles/GlobalStyle';
 import Header from 'Components/Header';
+import Footer from 'Components/Footer';
 import 'normalize.css';
 import 'typeface-roboto';
 
@@ -12,12 +13,8 @@ const Layout = ({ children }) => {
       <GlobalStyle></GlobalStyle>
 
       <Header></Header>
-      <div>
-        <main>{children}</main>
-        <footer>
-          <p>© {new Date().getFullYear()} Joshua Michael Ahlberg</p>
-        </footer>
-      </div>
+      <main>{children}</main>
+      <Footer></Footer>
     </Theme>
   );
 };

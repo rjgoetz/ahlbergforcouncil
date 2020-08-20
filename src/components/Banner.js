@@ -3,7 +3,7 @@ import { rgba, linearGradient } from 'polished';
 
 const Banner = styled.div`
   background: ${(props) => props.theme.colors.primary};
-  height: ${(props) => props.theme.rhythm(60)};
+  height: ${(props) => props.theme.rhythm(70)};
   overflow: hidden;
   position: relative;
   img {
