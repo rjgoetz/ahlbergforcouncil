@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { Container } from 'Components/Grid';
+import { Container, Row, Column } from 'Components/Grid';
 
 const StyledNav = styled.nav`
   background: ${(props) => rgba(props.theme.colors.black, 0.25)};
@@ -32,11 +32,15 @@ const Navigation = () => {
   return (
     <StyledNav>
       <Container>
-        <StyledLinks>
-          <li>Home</li>
-          <li>My Goals</li>
-          <li>My Story</li>
-        </StyledLinks>
+        <Row>
+          <Column lg={{ column: 10, offset: 1 }} xxl={{ column: 8, offset: 2 }}>
+            <StyledLinks>
+              <li>Home</li>
+              <li>My Goals</li>
+              <li>My Story</li>
+            </StyledLinks>
+          </Column>
+        </Row>
       </Container>
     </StyledNav>
   );

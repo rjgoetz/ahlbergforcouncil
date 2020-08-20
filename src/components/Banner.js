@@ -1,24 +1,31 @@
+import React from 'react';
 import styled from 'styled-components';
-import { rgba, linearGradient } from 'polished';
+import { Container, Row, Column } from 'Components/Grid';
+import Navigation from 'Components/Navigation';
 
-const Banner = styled.div`
-  background: ${(props) => props.theme.colors.primary};
+const BannerBox = styled.div`
+  background: url(${(props) => props.image}) no-repeat center right,
+    ${(props) => props.theme.colors.primary};
+  background-size: cover;
   height: ${(props) => props.theme.rhythm(70)};
   overflow: hidden;
   position: relative;
-  img {
-    height: 100%;
-    object-fit: cover;
-    object-position: right;
-    width: 100%;
+  @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
+    height: ${(props) => props.theme.rhythm(80)};
+  }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
+    height: ${(props) => props.theme.rhythm(90)};
   }
 `;
 
 const BannerText = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 50%;
+  @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
+    width: 33%;
+  }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
+    width: 25%;
+  }
 `;
 
 const OpacityLayer = styled.div`
@@ -35,4 +42,37 @@ const OpacityLayer = styled.div`
   z-index: 9;
 `;
 
-export { Banner, BannerText, OpacityLayer };
+const Banner = ({ children, image }) => {
+  return (
+    <BannerBox image={image}>
+      <OpacityLayer></OpacityLayer>
+
+      <Navigation></Navigation>
+
+      <Container
+        css={`
+          height: 100%;
+        `}
+      >
+        <Row
+          css={`
+            height: 100%;
+          `}
+        >
+          <Column
+            lg={{ column: 10, offset: 1 }}
+            css={`
+              display: flex;
+              align-items: center;
+              height: 100%;
+            `}
+          >
+            <BannerText>{children}</BannerText>
+          </Column>
+        </Row>
+      </Container>
+    </BannerBox>
+  );
+};
+
+export default Banner;

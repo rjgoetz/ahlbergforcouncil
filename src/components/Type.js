@@ -3,32 +3,24 @@ import { oneOf, bool } from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const customText = css`
-  border-bottom: ${(props) =>
-    props.underline && `1px solid ${props.theme.colors.grey}`};
   color: ${(props) => props.theme.colors[props.color]};
   font-size: ${(props) => props.theme.fontSize[props.size]};
   font-style: ${(props) => props.italic && 'italic'};
   font-weight: ${(props) => props.theme.fontWeight[props.weight]};
-  padding-bottom: ${(props) => props.underline && props.theme.rhythm(2)};
   text-align: ${(props) => props.align};
+  text-decoration: ${(props) => props.underline && 'underline'};
 `;
 
 const P = styled.p`
-  font-size: ${(props) => props.lead && props.theme.fontSize.md};
+  font-size: ${(props) => props.lead && '1.125rem'};
   margin: 0 0 ${(props) => props.theme.rhythm(2)};
-  text-align: ${(props) => props.lead && 'center'};
-
-  @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
-    ${(props) => props.lead && `margin-left: 12.5%; margin-right: 12.5%;`}
-  }
 
   ${(props) => props.custom && customText};
 `;
 
 const H1 = styled.h1`
   color: ${(props) =>
-    props.banner ? props.theme.colors.white : props.theme.colors.primary};
-
+    props.banner ? props.theme.colors.white : props.theme.colors.black};
   font-size: ${(props) =>
     props.banner ? props.theme.fontSize.xxl : props.theme.fontSize.xl};
   font-weight: ${(props) =>
@@ -47,8 +39,8 @@ const H2 = styled.h2`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSize.lg};
   font-weight: ${(props) => props.theme.fontWeight.medium};
+  line-height: ${(props) => props.theme.rhythm()};
   margin: 0 0 ${(props) => props.theme.rhythm(1)};
-  text-align: center;
 
   ${(props) => props.custom && customText};
 `;

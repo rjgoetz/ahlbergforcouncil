@@ -51,7 +51,7 @@ const theme = {
     xxl: '1920px',
   },
 
-  gutter: 15,
+  gutter: 20,
 };
 
 const Theme = ({ children }) => {
