@@ -1,61 +1,90 @@
 import React from 'react';
 import { Container, Row, Column } from 'Components/Grid';
-import { Banner, BannerText, OpacityLayer } from 'Components/Banner';
-import Navigation from 'Components/Navigation';
 import Layout from 'Components/Layout';
+import Logo from 'Components/Logo';
 import Image from 'Components/Image';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
-import Link from 'Components/Link';
+import styled from 'styled-components';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Banner>
-      <OpacityLayer></OpacityLayer>
-      <Navigation></Navigation>
+const TextBox = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: ${(props) => props.theme.rhythm(12)};
 
-      <Image
-        src="josh-hero-mobile.jpg"
-        srcSet={{
-          '1x': 'josh-hero-mobile.jpg',
-          '2x': 'josh-hero-mobile@2x.jpg',
-        }}
-        alt="Josh Ahlberg headshot"
-      ></Image>
-      <Container>
-        <BannerText>
+  @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
+    height: 800px;
+    margin-top: 0;
+    flex-direction: row;
+  }
+`;
+
+const IndexPage = () => {
+  return (
+    <Layout>
+      <TextBox>
+        <div
+          css={`
+            text-align: center;
+            @media screen and (min-width: ${(props) =>
+                props.theme.viewPort.sm}) {
+              width: 66%;
+            }
+            @media screen and (min-width: ${(props) =>
+                props.theme.viewPort.lg}) {
+              margin: auto;
+            }
+          `}
+        >
+          <Logo
+            css={`
+              margin-bottom: ${(props) => props.theme.rhythm(12)};
+              max-width: 300px;
+            `}
+          ></Logo>
           <Type
             el="h1"
             banner
             css={`
-              margin-bottom: 0px;
+              text-align: center;
+              @media screen and (min-width: ${(props) =>
+                  props.theme.viewPort.lg}) {
+                margin: auto;
+                text-align: left;
+                width: 66%;
+              }
+              @media screen and (min-width: ${(props) =>
+                  props.theme.viewPort.xl}) {
+                width: 33%;
+              }
             `}
           >
             <span
               css={`
                 background: ${(props) => props.theme.colors.primary};
                 line-height: ${(props) => props.theme.rhythm(7)};
-                outline: 5px solid ${(props) => props.theme.colors.primary};
               `}
             >
               #THE SENSIBLE CHOICE FOR EDINA
             </span>
           </Type>
-        </BannerText>
-      </Container>
-    </Banner>
-
-    <Container>
-      <Row>
-        <Column>
-          <Type el="h1">Joshua Ahlberg for Edina City Council</Type>
-          <Type lead>Welcome to your new site.</Type>
-          <Link to="/about/">Go to About</Link>
-        </Column>
-      </Row>
-    </Container>
-  </Layout>
-);
+        </div>
+        <Image
+          src="josh-ba.jpg"
+          srcSet={{ '1x': 'josh-ba.jpg', '2x': 'josh-ba.jpg' }}
+          alt="Josh is BA"
+          responsive
+          css={`
+            @media screen and (min-width: ${(props) =>
+                props.theme.viewPort.lg}) {
+              display: block;
+              width: 50%;
+            }
+          `}
+        ></Image>
+      </TextBox>
+    </Layout>
+  );
+};
 
 export default IndexPage;
