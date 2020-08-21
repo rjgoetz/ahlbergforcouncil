@@ -13,8 +13,8 @@ const DefaultLink = styled(Link)`
   &:active {
     color: ${(props) =>
       props.color
-        ? lighten(0.3, props.theme.colors[props.color])
-        : lighten(0.3, props.theme.colors.primary)};
+        ? lighten(0.25, props.theme.colors[props.color])
+        : lighten(0.25, props.theme.colors.primary)};
     text-decoration: underline;
   }
   &:focus {
@@ -31,7 +31,7 @@ const ExternalLink = styled.a`
   text-decoration: none;
   &:hover,
   &:active {
-    color: ${(props) => lighten(0.3, props.theme.colors.primary)};
+    color: ${(props) => lighten(0.25, props.theme.colors.primary)};
     text-decoration: underline;
   }
   &:focus {
