@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import { Container, Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
 import Link from 'Components/Link';
-import Image from 'Components/Image';
 import Logo from 'Components/Logo';
 import { lighten } from 'polished';
-import { Facebook, Instagram, Mail, Phone } from '@styled-icons/feather';
+import { Facebook, Instagram } from '@styled-icons/feather';
 
 const StyledFooter = styled.footer`
   background: ${(props) => props.theme.colors.primary};
@@ -14,7 +13,6 @@ const StyledFooter = styled.footer`
 `;
 
 const FooterNav = styled.nav`
-  font-size: ${(props) => props.theme.fontSize.sm};
   margin: 0 0 ${(props) => props.theme.rhythm(2)};
   ul {
     list-style-type: none;
@@ -39,9 +37,12 @@ const FooterNav = styled.nav`
       }
     }
   }
-  @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-    font-size: ${(props) => props.theme.fontSize.base};
-  }
+`;
+
+const StyledLogo = styled(Logo)`
+  background: white;
+  padding: 5px;
+  width: 150px;
 `;
 
 const Footer = () => {
@@ -62,9 +63,10 @@ const Footer = () => {
                 `}
               >
                 <Column
-                  xs={5}
-                  md={3}
-                  lg={{ column: 2, offset: 1 }}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                  xxl={2}
                   css={`
                     @media screen and (min-width: ${(props) =>
                         props.theme.viewPort.md}) {
@@ -72,18 +74,7 @@ const Footer = () => {
                     }
                   `}
                 >
-                  <Type
-                    el="h4"
-                    color="white"
-                    weight="bold"
-                    size="xs"
-                    css={`
-                      @media screen and (min-width: ${(props) =>
-                          props.theme.viewPort.sm}) {
-                        font-size: ${(props) => props.theme.fontSize.sm};
-                      }
-                    `}
-                  >
+                  <Type el="h4" color="white" weight="bold">
                     My Campaign
                   </Type>
                   <ul>
@@ -103,8 +94,9 @@ const Footer = () => {
                 </Column>
 
                 <Column
-                  xs={7}
-                  md={3}
+                  sm={6}
+                  md={4}
+                  lg={3}
                   css={`
                     @media screen and (min-width: ${(props) =>
                         props.theme.viewPort.md}) {
@@ -112,18 +104,7 @@ const Footer = () => {
                     }
                   `}
                 >
-                  <Type
-                    el="h4"
-                    color="white"
-                    weight="bold"
-                    size="xs"
-                    css={`
-                      @media screen and (min-width: ${(props) =>
-                          props.theme.viewPort.sm}) {
-                        font-size: ${(props) => props.theme.fontSize.sm};
-                      }
-                    `}
-                  >
+                  <Type el="h4" color="white" weight="bold">
                     Get in touch
                   </Type>
                   <ul>
@@ -167,8 +148,9 @@ const Footer = () => {
                 </Column>
 
                 <Column
-                  md={5}
-                  xl={4}
+                  md={4}
+                  lg={6}
+                  xxl={4}
                   css={`
                     @media screen and (min-width: ${(props) =>
                         props.theme.viewPort.md}) {
@@ -176,41 +158,7 @@ const Footer = () => {
                     }
                   `}
                 >
-                  <div
-                    css={`
-                      display: flex;
-                      justify-content: space-between;
-                      align-items: flex-start;
-                      margin-bottom: ${(props) => props.theme.rhythm()};
-                      @media screen and (min-width: ${(props) =>
-                          props.theme.viewPort.xl}) {
-                        justify-content: flex-start;
-                      }
-                    `}
-                  >
-                    <Logo
-                      css={`
-                        background: white;
-                        padding: 10px;
-                        height: 70px;
-                        @media screen and (min-width: ${(props) =>
-                            props.theme.viewPort.xl}) {
-                          margin-right: 40px;
-                        }
-                      `}
-                    ></Logo>
-                    <Image
-                      src={'edina-city-seal.png'}
-                      srcSet={{
-                        '1x': 'edina-city-seal.png',
-                        '2x': 'edina-city-seal.png',
-                      }}
-                      alt="Edina City Seal"
-                      css={`
-                        height: 70px;
-                      `}
-                    ></Image>
-                  </div>
+                  <StyledLogo></StyledLogo>
                   <Type
                     color="white"
                     weight="normal"
