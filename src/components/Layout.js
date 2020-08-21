@@ -7,12 +7,13 @@ import Footer from 'Components/Footer';
 import 'normalize.css';
 import 'typeface-roboto';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, banner }) => {
   return (
     <Theme>
       <GlobalStyle></GlobalStyle>
 
       <Header></Header>
+      {banner}
       <main>{children}</main>
       <Footer></Footer>
     </Theme>
