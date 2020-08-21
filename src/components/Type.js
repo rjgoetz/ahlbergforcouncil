@@ -60,7 +60,7 @@ const H4 = styled.h4`
   font-size: ${(props) => props.theme.fontSize.sm};
   font-weight: ${(props) => props.theme.fontWeight.light};
   line-height: ${(props) => props.theme.rhythm(3)};
-  margin: 0 0 ${(props) => props.theme.rhythm(1)};
+  margin: 0;
   text-transform: uppercase;
 
   ${(props) => props.custom && customText};
