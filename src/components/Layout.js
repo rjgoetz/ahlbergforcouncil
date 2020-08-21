@@ -14,7 +14,13 @@ const Layout = ({ children, banner }) => {
 
       <Header></Header>
       {banner}
-      <main>{children}</main>
+      <main
+        css={`
+          position: relative;
+        `}
+      >
+        {children}
+      </main>
       <Footer></Footer>
     </Theme>
   );
