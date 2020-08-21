@@ -2,6 +2,7 @@ import React from 'react';
 import { bool, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import Link from 'Components/Link';
+import { lighten } from 'polished';
 
 const DefaultButton = styled.div`
   background: ${(props) => props.theme.colors[props.background]};
@@ -21,7 +22,7 @@ const DefaultButton = styled.div`
   text-align: center;
   &:active,
   &:hover {
-    text-decoration: underline;
+    background: ${(props) => lighten(0.25, props.theme.colors.primary)};
   }
 `;
 
