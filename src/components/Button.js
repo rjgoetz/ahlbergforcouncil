@@ -1,7 +1,6 @@
 import React from 'react';
-import { bool, string, oneOf } from 'prop-types';
+import { bool, oneOf } from 'prop-types';
 import styled from 'styled-components';
-import { darken } from 'polished';
 import Link from 'Components/Link';
 
 const DefaultButton = styled.div`
@@ -22,11 +21,7 @@ const DefaultButton = styled.div`
   text-align: center;
   &:active,
   &:hover {
-    background: ${(props) =>
-      props.background === 'primary' &&
-      darken(0.1, props.theme.colors[props.background])};
-    text-decoration: ${(props) =>
-      props.background === 'primary' ? 'none' : 'underline'};
+    text-decoration: underline;
   }
 `;
 

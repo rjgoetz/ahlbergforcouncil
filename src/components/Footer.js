@@ -6,7 +6,7 @@ import Link from 'Components/Link';
 import Image from 'Components/Image';
 import Logo from 'Components/Logo';
 import { lighten } from 'polished';
-import { Facebook, Instagram, Mail } from '@styled-icons/feather';
+import { Facebook, Instagram, Mail, Phone } from '@styled-icons/feather';
 
 const StyledFooter = styled.footer`
   background: ${(props) => props.theme.colors.primary};
@@ -14,6 +14,7 @@ const StyledFooter = styled.footer`
 `;
 
 const FooterNav = styled.nav`
+  font-size: ${(props) => props.theme.fontSize.sm};
   margin: 0 0 ${(props) => props.theme.rhythm(2)};
   ul {
     list-style-type: none;
@@ -38,6 +39,9 @@ const FooterNav = styled.nav`
       }
     }
   }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
+    font-size: ${(props) => props.theme.fontSize.base};
+  }
 `;
 
 const Footer = () => {
@@ -45,15 +49,41 @@ const Footer = () => {
     <StyledFooter>
       <Container>
         <Row>
-          <Column lg={{ column: 10, offset: 1 }}>
+          <Column
+            sm={{ column: 10, offset: 1 }}
+            md={{ column: 12, offset: 0 }}
+            lg={{ column: 10, offset: 1 }}
+            xl={{ column: 8, offset: 2 }}
+          >
             <FooterNav>
               <Row
                 css={`
                   margin-bottom: ${(props) => props.theme.rhythm()};
                 `}
               >
-                <Column sm={3} md={3} xl={2}>
-                  <Type el="h4" color="white" weight="bold">
+                <Column
+                  xs={5}
+                  md={3}
+                  lg={{ column: 2, offset: 1 }}
+                  css={`
+                    @media screen and (min-width: ${(props) =>
+                        props.theme.viewPort.md}) {
+                      order: 2;
+                    }
+                  `}
+                >
+                  <Type
+                    el="h4"
+                    color="white"
+                    weight="bold"
+                    size="xs"
+                    css={`
+                      @media screen and (min-width: ${(props) =>
+                          props.theme.viewPort.sm}) {
+                        font-size: ${(props) => props.theme.fontSize.sm};
+                      }
+                    `}
+                  >
                     My Campaign
                   </Type>
                   <ul>
@@ -72,85 +102,114 @@ const Footer = () => {
                   </ul>
                 </Column>
 
-                <Column sm={6} md={6} lg={4}>
-                  <Type el="h4" color="white" weight="bold">
-                    Engage
+                <Column
+                  xs={7}
+                  md={3}
+                  css={`
+                    @media screen and (min-width: ${(props) =>
+                        props.theme.viewPort.md}) {
+                      order: 3;
+                    }
+                  `}
+                >
+                  <Type
+                    el="h4"
+                    color="white"
+                    weight="bold"
+                    size="xs"
+                    css={`
+                      @media screen and (min-width: ${(props) =>
+                          props.theme.viewPort.sm}) {
+                        font-size: ${(props) => props.theme.fontSize.sm};
+                      }
+                    `}
+                  >
+                    Get in touch
                   </Type>
                   <ul>
                     <li>
+                      <Link to="#">josh@ahlbergforcouncil.org</Link>
+                    </li>
+                    <li
+                      css={`
+                        margin-bottom: ${(props) => props.theme.rhythm()};
+                      `}
+                    >
+                      <Link to="#">(612) 458-4817</Link>
+                    </li>
+                    <li
+                      css={`
+                        display: inline-block;
+                      `}
+                    >
                       <Link to="#">
                         <i>
-                          <Facebook size={20}></Facebook>
+                          <Facebook size={24}></Facebook>
                         </i>
-                        fb/ahlbergforcouncil
                       </Link>
                     </li>
-                    <li>
+                    <li
+                      css={`
+                        display: inline-block;
+                      `}
+                    >
                       <Link to="#">
                         <i>
                           <Instagram
-                            size={20}
+                            size={24}
                             stroke="#1b5633"
                             strokeWidth={2}
                           ></Instagram>
                         </i>
-                        @ahlbergforcoucil
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <i>
-                          <Mail
-                            size={20}
-                            stroke="#1b5633"
-                            strokeWidth={2}
-                          ></Mail>
-                        </i>
-                        josh@ahlbergforcouncil.org
                       </Link>
                     </li>
                   </ul>
                 </Column>
 
                 <Column
-                  sm={3}
-                  lg={2}
-                  css={`@media screen and (min-width: ${(props) =>
-                    props.theme.viewPort.sm}) {
-                  text-align: right;
-                  
-                  @media screen and (min-width: ${(props) =>
-                    props.theme.viewPort.lg}) {
-                  text-align: center;`}
+                  md={5}
+                  xl={4}
+                  css={`
+                    @media screen and (min-width: ${(props) =>
+                        props.theme.viewPort.md}) {
+                      order: 1;
+                    }
+                  `}
                 >
-                  <Image
-                    src={'edina-city-seal.png'}
-                    srcSet={{
-                      '1x': 'edina-city-seal.png',
-                      '2x': 'edina-city-seal.png',
-                    }}
-                    alt="Edina City Seal"
-                    css={`
-                      margin-bottom: ${(props) => props.theme.rhythm()};
-                      width: 100px;
-                    `}
-                  ></Image>
-                </Column>
-
-                <Column lg={3} xl={4}>
                   <div
                     css={`
-                      background: white;
-                      display: inline-block;
-                      padding: 4px 4px 0;
-                      margin-bottom: ${(props) => props.theme.rhythm(2)};
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: flex-start;
+                      margin-bottom: ${(props) => props.theme.rhythm()};
+                      @media screen and (min-width: ${(props) =>
+                          props.theme.viewPort.xl}) {
+                        justify-content: flex-start;
+                      }
                     `}
                   >
                     <Logo
                       css={`
-                        width: 150px;
+                        background: white;
+                        padding: 10px;
+                        height: 70px;
+                        @media screen and (min-width: ${(props) =>
+                            props.theme.viewPort.xl}) {
+                          margin-right: 40px;
+                        }
                       `}
                     ></Logo>
+                    <Image
+                      src={'edina-city-seal.png'}
+                      srcSet={{
+                        '1x': 'edina-city-seal.png',
+                        '2x': 'edina-city-seal.png',
+                      }}
+                      alt="Edina City Seal"
+                      css={`
+                        height: 70px;
+                      `}
+                    ></Image>
                   </div>
                   <Type
                     color="white"
@@ -158,6 +217,7 @@ const Footer = () => {
                     size="sm"
                     css={`
                       line-height: ${(props) => props.theme.rhythm(3)};
+                      margin-bottom: 0;
                     `}
                   >
                     &copy; 2020 Ahlberg for Edina City Council

@@ -1,41 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
+import { Container, Column, Row } from 'Components/Grid';
 import Type from 'Components/Type';
 import Button from 'Components/Button';
 
-const OuterBox = styled.div`
-  position: relative;
-  bottom: 50%;
-`;
-
-const InnerBox = styled.div`
+const OuterBox = styled(Container)`
   background: ${(props) => props.theme.colors.white};
   box-shadow: 0 10px 48px -6px ${(props) => rgba(props.theme.colors.black, 0.5)};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: ${(props) => props.theme.rhythm(16)};
-  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 50%;
 `;
 
 const DonateBox = () => {
   return (
     <OuterBox>
-      <InnerBox>
-        <div
+      <Row>
+        <Column
+          lg={6}
           css={`
-            display: flex;
+            text-align: center;
+            @media screen and (min-width: ${(props) =>
+                props.theme.viewPort.lg}) {
+              text-align: left;
+            }
           `}
         >
           <div
             css={`
+              display: inline-block;
+              vertical-align: middle;
               margin-right: 30px;
             `}
           >
-            <Type el="h2">Get Involved!</Type>
+            <Type el="h2" align="center">
+              Get Involved!
+            </Type>
             <Type
               lead
+              align="center"
               css={`
                 margin-bottom: 0;
               `}
@@ -43,10 +47,9 @@ const DonateBox = () => {
               Become a Volunteer
             </Type>
           </div>
-          <Button css={'align-self: center;'}>Sign Up!</Button>
-        </div>
-        <div></div>
-      </InnerBox>
+          <Button>Sign Up!</Button>
+        </Column>
+      </Row>
     </OuterBox>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 import { Container, Row, Column } from 'Components/Grid';
 import Navigation from 'Components/Navigation';
@@ -61,6 +62,7 @@ const Banner = ({ children, image }) => {
         >
           <Column
             lg={{ column: 10, offset: 1 }}
+            xl={{ column: 8, offset: 2 }}
             css={`
               display: flex;
               align-items: center;
@@ -73,6 +75,10 @@ const Banner = ({ children, image }) => {
       </Container>
     </BannerBox>
   );
+};
+
+Banner.propTypes = {
+  image: string.isRequired,
 };
 
 export default Banner;

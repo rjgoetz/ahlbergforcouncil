@@ -30,8 +30,8 @@ const BigNumberBox = styled.div`
 
 const BigNumber = styled.span`
   color: ${(props) => props.theme.colors.primary};
-  display: inline-block;
-  font-size: 60px;
+  display: block;
+  font-size: 64px;
   font-weight: ${(props) => props.theme.fontWeight.light};
   line-height: ${(props) => props.theme.rhythm(10)};
   margin-right: 15px;
@@ -64,7 +64,11 @@ const IndexPage = () => (
 
     <Container>
       <Row>
-        <Column lg={{ column: 10, offset: 1 }}>
+        <Column
+          md={{ column: 12, offset: 0 }}
+          lg={{ column: 10, offset: 1 }}
+          xl={{ column: 8, offset: 2 }}
+        >
           <DonateBox></DonateBox>
         </Column>
       </Row>
@@ -81,6 +85,7 @@ const IndexPage = () => (
           sm={{ column: 8, offset: 2 }}
           md={{ column: 12, offset: 0 }}
           lg={{ column: 10, offset: 1 }}
+          xl={{ column: 8, offset: 2 }}
         >
           <Row>
             <Column md={6}>
@@ -105,27 +110,29 @@ const IndexPage = () => (
 
               <div
                 css={`
-                  display: flex;
-                  justify-content: space-evenly;
+                  display: inline-block;
                 `}
               >
-                <div>
-                  <Image
-                    src="ahlberg-icon.png"
-                    srcSet={{
-                      '1x': 'ahlberg-icon.png',
-                      '2x': 'ahlberg-icon.png',
-                    }}
-                    alt="Ahlberg Crown"
-                    css={`
-                      width: 50px;
-                    `}
-                  ></Image>
-                </div>
-                <div>
-                  <Type weight="medium">-- Josh Ahlberg</Type>
-                  <Link to="/about/">More about me &gt;</Link>
-                </div>
+                <Image
+                  src="ahlberg-icon.png"
+                  srcSet={{
+                    '1x': 'ahlberg-icon.png',
+                    '2x': 'ahlberg-icon.png',
+                  }}
+                  alt="Ahlberg Crown"
+                  css={`
+                    margin-right: 40px;
+                    width: 50px;
+                  `}
+                ></Image>
+              </div>
+              <div
+                css={`
+                  display: inline-block;
+                `}
+              >
+                <Type weight="medium">-- Josh Ahlberg</Type>
+                <Link to="/about/">More about me &gt;</Link>
               </div>
             </Column>
           </Row>
@@ -150,11 +157,12 @@ const IndexPage = () => (
             sm={{ column: 8, offset: 2 }}
             md={{ column: 12, offset: 0 }}
             lg={{ column: 10, offset: 1 }}
+            xl={{ column: 8, offset: 2 }}
           >
             <Row>
               <Column md={4} xxl={3}>
                 <BigNumberBox>
-                  <BigNumber>01&ndash;</BigNumber>
+                  <BigNumber>01</BigNumber>
                   <Type
                     el="h2"
                     color="black"
@@ -180,7 +188,7 @@ const IndexPage = () => (
               </Column>
               <Column md={4} xxl={{ column: 3, offset: 1 }}>
                 <BigNumberBox>
-                  <BigNumber>02&ndash;</BigNumber>
+                  <BigNumber>02</BigNumber>
                   <Type
                     el="h2"
                     color="black"
@@ -206,7 +214,7 @@ const IndexPage = () => (
               </Column>
               <Column md={4} xxl={{ column: 3, offset: 1 }}>
                 <BigNumberBox>
-                  <BigNumber>03&ndash;</BigNumber>
+                  <BigNumber>03</BigNumber>
                   <Type
                     el="h2"
                     color="black"

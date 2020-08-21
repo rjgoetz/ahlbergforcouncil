@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import { Container, Row, Column } from 'Components/Grid';
+import { Link } from 'gatsby';
 
 const StyledNav = styled.nav`
   background: ${(props) => rgba(props.theme.colors.black, 0.25)};
@@ -16,14 +17,20 @@ const StyledLinks = styled.ul`
   padding: 0;
   margin: 0;
   li {
-    color: ${(props) => props.theme.colors.white};
     display: inline-block;
-    font-weight: ${(props) => props.theme.fontWeight.bold};
-    line-height: ${(props) => props.theme.rhythm(8)};
     margin-right: 20px;
-    &:active,
-    &:hover {
-      text-decoration: underline;
+    a {
+      color: ${(props) => props.theme.colors.white};
+      display: inline-block;
+      font-weight: ${(props) => props.theme.fontWeight.bold};
+      height: 100%;
+      line-height: ${(props) => props.theme.rhythm(8)};
+      padding: 0 5px;
+      text-decoration: none;
+      &:active,
+      &:hover {
+        background: ${(props) => props.theme.colors.primary};
+      }
     }
   }
 `;
@@ -35,9 +42,15 @@ const Navigation = () => {
         <Row>
           <Column lg={{ column: 10, offset: 1 }} xxl={{ column: 8, offset: 2 }}>
             <StyledLinks>
-              <li>Home</li>
-              <li>My Goals</li>
-              <li>My Story</li>
+              <li>
+                <Link to="#">Home</Link>
+              </li>
+              <li>
+                <Link to="#">My Goals</Link>
+              </li>
+              <li>
+                <Link to="#">My Story</Link>
+              </li>
             </StyledLinks>
           </Column>
         </Row>
