@@ -70,9 +70,9 @@ const IndexPage = () => {
           </Type>
         </div>
         <Image
-          src="josh-ba.jpg"
-          srcSet={{ '1x': 'josh-ba.jpg', '2x': 'josh-ba.jpg' }}
-          alt="Josh is BA"
+          src="ahlberg-family.jpg"
+          srcSet={{ '1x': 'ahlberg-family.jpg', '2x': 'ahlberg-family@2x.jpg' }}
+          alt="Ahlberg Family"
           responsive
           css={`
             @media screen and (min-width: ${(props) =>
