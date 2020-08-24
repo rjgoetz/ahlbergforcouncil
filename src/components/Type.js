@@ -27,8 +27,7 @@ const P = styled.p`
 `;
 
 const H1 = styled.h1`
-  color: ${(props) =>
-    props.banner ? props.theme.colors.white : props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
 
   font-size: ${(props) =>
     props.banner ? props.theme.fontSize.xxl : props.theme.fontSize.xl};

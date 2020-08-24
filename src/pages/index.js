@@ -47,25 +47,18 @@ const IndexPage = () => {
             banner
             css={`
               text-align: center;
-              @media screen and (min-width: ${(props) =>
-                  props.theme.viewPort.lg}) {
-                margin: auto;
-                text-align: left;
-                width: 66%;
-              }
-              @media screen and (min-width: ${(props) =>
-                  props.theme.viewPort.xl}) {
-                width: 33%;
-              }
             `}
           >
             <span
               css={`
-                background: ${(props) => props.theme.colors.primary};
+                font-size: ${(props) => props.theme.fontSize.xl};
                 line-height: ${(props) => props.theme.rhythm(7)};
+                margin: 0 5px;
               `}
             >
-              #THE SENSIBLE CHOICE FOR EDINA
+              HELP IS ON THE WAY.
+              <br />
+              COMING SOON.
             </span>
           </Type>
         </div>
