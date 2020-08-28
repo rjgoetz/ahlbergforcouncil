@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Row, Column } from 'Components/Grid';
+import { Row, Column } from 'Components/Grid';
+import Wrapper from 'Components/Wrapper';
 import Type from 'Components/Type';
 import Link from 'Components/Link';
 import Logo from 'Components/Logo';
@@ -48,134 +49,126 @@ const StyledLogo = styled(Logo)`
 const Footer = () => {
   return (
     <StyledFooter>
-      <Container>
-        <Row>
-          <Column
-            sm={{ column: 10, offset: 1 }}
-            md={{ column: 12, offset: 0 }}
-            lg={{ column: 10, offset: 1 }}
-            xl={{ column: 8, offset: 2 }}
+      <Wrapper>
+        <FooterNav>
+          <Row
+            css={`
+              margin-bottom: ${(props) => props.theme.rhythm()};
+            `}
           >
-            <FooterNav>
-              <Row
+            <Column
+              sm={6}
+              md={4}
+              lg={3}
+              xxl={2}
+              css={`
+                @media screen and (min-width: ${(props) =>
+                    props.theme.viewPort.md}) {
+                  order: 2;
+                }
+              `}
+            >
+              <Type el="h4" color="white" weight="bold">
+                My Campaign
+              </Type>
+              <ul>
+                <li>
+                  <Link to="/about/">My Story</Link>
+                </li>
+                <li>
+                  <Link to="/goals/">My Goals</Link>
+                </li>
+                <li>
+                  <Link to="/donate/">Donate</Link>
+                </li>
+                <li>
+                  <Link to="/volunteer/">Volunteer</Link>
+                </li>
+              </ul>
+            </Column>
+
+            <Column
+              sm={6}
+              md={4}
+              lg={3}
+              css={`
+                @media screen and (min-width: ${(props) =>
+                    props.theme.viewPort.md}) {
+                  order: 3;
+                }
+              `}
+            >
+              <Type el="h4" color="white" weight="bold">
+                Get in touch
+              </Type>
+              <ul>
+                <li>
+                  <Link to="#">josh@ahlbergforcouncil.org</Link>
+                </li>
+                <li
+                  css={`
+                    margin-bottom: ${(props) => props.theme.rhythm()};
+                  `}
+                >
+                  <Link to="#">(612) 458-4817</Link>
+                </li>
+                <li
+                  css={`
+                    display: inline-block;
+                  `}
+                >
+                  <Link to="#">
+                    <i>
+                      <Facebook size={24}></Facebook>
+                    </i>
+                  </Link>
+                </li>
+                <li
+                  css={`
+                    display: inline-block;
+                  `}
+                >
+                  <Link to="#">
+                    <i>
+                      <Instagram
+                        size={24}
+                        stroke="#1b5633"
+                        strokeWidth={2}
+                      ></Instagram>
+                    </i>
+                  </Link>
+                </li>
+              </ul>
+            </Column>
+
+            <Column
+              md={4}
+              lg={6}
+              xxl={4}
+              css={`
+                @media screen and (min-width: ${(props) =>
+                    props.theme.viewPort.md}) {
+                  order: 1;
+                }
+              `}
+            >
+              <StyledLogo></StyledLogo>
+              <Type
+                color="white"
+                size="sm"
                 css={`
-                  margin-bottom: ${(props) => props.theme.rhythm()};
+                  line-height: ${(props) => props.theme.rhythm(3)};
+                  margin-bottom: 0;
                 `}
               >
-                <Column
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  xxl={2}
-                  css={`
-                    @media screen and (min-width: ${(props) =>
-                        props.theme.viewPort.md}) {
-                      order: 2;
-                    }
-                  `}
-                >
-                  <Type el="h4" color="white" weight="bold">
-                    My Campaign
-                  </Type>
-                  <ul>
-                    <li>
-                      <Link to="/about/">My Story</Link>
-                    </li>
-                    <li>
-                      <Link to="/goals/">My Goals</Link>
-                    </li>
-                    <li>
-                      <Link to="/donate/">Donate</Link>
-                    </li>
-                    <li>
-                      <Link to="/volunteer/">Volunteer</Link>
-                    </li>
-                  </ul>
-                </Column>
-
-                <Column
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  css={`
-                    @media screen and (min-width: ${(props) =>
-                        props.theme.viewPort.md}) {
-                      order: 3;
-                    }
-                  `}
-                >
-                  <Type el="h4" color="white" weight="bold">
-                    Get in touch
-                  </Type>
-                  <ul>
-                    <li>
-                      <Link to="#">josh@ahlbergforcouncil.org</Link>
-                    </li>
-                    <li
-                      css={`
-                        margin-bottom: ${(props) => props.theme.rhythm()};
-                      `}
-                    >
-                      <Link to="#">(612) 458-4817</Link>
-                    </li>
-                    <li
-                      css={`
-                        display: inline-block;
-                      `}
-                    >
-                      <Link to="#">
-                        <i>
-                          <Facebook size={24}></Facebook>
-                        </i>
-                      </Link>
-                    </li>
-                    <li
-                      css={`
-                        display: inline-block;
-                      `}
-                    >
-                      <Link to="#">
-                        <i>
-                          <Instagram
-                            size={24}
-                            stroke="#1b5633"
-                            strokeWidth={2}
-                          ></Instagram>
-                        </i>
-                      </Link>
-                    </li>
-                  </ul>
-                </Column>
-
-                <Column
-                  md={4}
-                  lg={6}
-                  xxl={4}
-                  css={`
-                    @media screen and (min-width: ${(props) =>
-                        props.theme.viewPort.md}) {
-                      order: 1;
-                    }
-                  `}
-                >
-                  <StyledLogo></StyledLogo>
-                  <Type
-                    color="white"
-                    weight="normal"
-                    size="sm"
-                    css={`
-                      line-height: ${(props) => props.theme.rhythm(3)};
-                      margin-bottom: 0;
-                    `}
-                  >
-                    &copy; 2020 Ahlberg for Edina City Council
-                  </Type>
-                </Column>
-              </Row>
-            </FooterNav>
-          </Column>
-        </Row>
-      </Container>
+                Paid for by Ahlberg for Council.
+                <br />
+                6825 Valley View Rd. Edina, MN 55439
+              </Type>
+            </Column>
+          </Row>
+        </FooterNav>
+      </Wrapper>
     </StyledFooter>
   );
 };

@@ -34,13 +34,13 @@ const theme = {
     bolder: 900,
   },
 
-  lineHeight: '1.5rem',
-  rootFontSize: '16px',
+  lineHeight: '1.7rem',
+  rootFontSize: '17px',
   rhythm(size = 4) {
     /*
       rootFontSize * lineHeight * 1/4 for more flexiblity
     */
-    return `${16 * 1.5 * 0.25 * size}px`;
+    return `${17 * 1.7 * 0.25 * size}px`;
   },
 
   viewPort: {

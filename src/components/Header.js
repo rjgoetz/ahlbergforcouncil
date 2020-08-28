@@ -4,11 +4,16 @@ import { Container, Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
 import Logo from 'Components/Logo';
 import Button from 'Components/Button';
+import Link from 'Components/Link';
 import { DollarSign, Facebook, Instagram, Mail } from '@styled-icons/feather';
 
 const StyledHeader = styled.header`
-  padding-top: ${(props) => props.theme.rhythm()};
-  padding-bottom: ${(props) => props.theme.rhythm()};
+  padding-top: ${(props) => props.theme.rhythm(3)};
+  padding-bottom: ${(props) => props.theme.rhythm(3)};
+  @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
+    padding-top: ${(props) => props.theme.rhythm()};
+    padding-bottom: ${(props) => props.theme.rhythm()};
+  }
 `;
 
 const StyledLogo = styled(Logo)`
@@ -44,7 +49,7 @@ const Header = () => {
     <StyledHeader>
       <Container>
         <Row>
-          <Column xl={{ column: 10, offset: 1 }} xxl={{ column: 8, offset: 2 }}>
+          <Column xxl={{ column: 10, offset: 1 }}>
             <Row>
               <Column xs={6} md={4} lg={3} xxl={2}>
                 <StyledLogo></StyledLogo>
@@ -63,9 +68,10 @@ const Header = () => {
                 `}
               >
                 <GetInTouch>
-                  <Type el="h4">Get in Touch</Type>
                   <Type weight="bold" css={'margin-bottom: 0;'}>
                     (612) 458-4817
+                    <br />
+                    <Link to="/contact">Suggestion box &gt;</Link>
                   </Type>
                 </GetInTouch>
                 <Social>

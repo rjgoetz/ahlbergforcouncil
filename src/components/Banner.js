@@ -1,21 +1,20 @@
 import React from 'react';
-import { string } from 'prop-types';
 import styled from 'styled-components';
 import { Container, Row, Column } from 'Components/Grid';
-import Navigation from 'Components/Navigation';
 
 const BannerBox = styled.div`
-  background: url(${(props) => props.image}) no-repeat center right,
-    ${(props) => props.theme.colors.primary};
-  background-size: cover;
-  height: ${(props) => props.theme.rhythm(70)};
+  height: ${(props) => props.theme.rhythm(60)};
   overflow: hidden;
   position: relative;
   @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
-    height: ${(props) => props.theme.rhythm(80)};
+    height: ${(props) => props.theme.rhythm(70)};
   }
   @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
-    height: ${(props) => props.theme.rhythm(90)};
+    height: ${(props) => props.theme.rhythm(80)};
+  }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
+    background-position-x: center;
+    background-size: contain;
   }
 `;
 
@@ -29,27 +28,9 @@ const BannerText = styled.div`
   }
 `;
 
-const OpacityLayer = styled.div`
-  background: rgba(255, 255, 255, 0);
-  background: linear-gradient(
-    360deg,
-    rgba(255, 255, 255, 0) 66%,
-    rgba(27, 86, 51, 0.25) 100%
-  );
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 9;
-`;
-
-const Banner = ({ children, image }) => {
+const Banner = ({ children, ...props }) => {
   return (
-    <BannerBox image={image}>
-      <OpacityLayer></OpacityLayer>
-
-      <Navigation></Navigation>
-
+    <BannerBox {...props}>
       <Container
         css={`
           height: 100%;
@@ -61,8 +42,8 @@ const Banner = ({ children, image }) => {
           `}
         >
           <Column
-            lg={{ column: 10, offset: 1 }}
-            xl={{ column: 8, offset: 2 }}
+            xl={{ column: 10, offset: 1 }}
+            xxl={{ column: 8, offset: 2 }}
             css={`
               display: flex;
               align-items: center;
@@ -75,10 +56,6 @@ const Banner = ({ children, image }) => {
       </Container>
     </BannerBox>
   );
-};
-
-Banner.propTypes = {
-  image: string.isRequired,
 };
 
 export default Banner;

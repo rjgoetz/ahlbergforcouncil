@@ -13,6 +13,7 @@ const customText = css`
 
 const P = styled.p`
   font-size: ${(props) => props.lead && '1.125rem'};
+  line-height: ${(props) => props.lead && props.theme.rhythm()};
   margin: 0 0 ${(props) => props.theme.rhythm(2)};
 
   ${(props) => props.custom && customText};
@@ -22,25 +23,21 @@ const H1 = styled.h1`
   color: ${(props) =>
     props.banner ? props.theme.colors.white : props.theme.colors.black};
   font-size: ${(props) =>
-    props.banner ? props.theme.fontSize.xxl : props.theme.fontSize.xl};
-  font-weight: ${(props) =>
-    props.banner
-      ? props.theme.fontWeight.bolder
-      : props.theme.fontWeight.medium};
+    props.banner ? props.theme.fontSize.xl : props.theme.fontSize.xl};
+  font-weight: ${(props) => props.theme.fontWeight.medium};
   line-height: ${(props) => props.theme.rhythm(6)};
   margin: 0 0
     ${(props) => (props.banner ? props.theme.rhythm(8) : props.theme.rhythm())};
-  text-align: ${(props) => (props.banner ? 'left' : 'center')};
 
   ${(props) => props.custom && customText};
 `;
 
 const H2 = styled.h2`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.black};
   font-size: ${(props) => props.theme.fontSize.lg};
   font-weight: ${(props) => props.theme.fontWeight.medium};
   line-height: ${(props) => props.theme.rhythm()};
-  margin: 0 0 ${(props) => props.theme.rhythm(1)};
+  margin: 0 0 ${(props) => props.theme.rhythm(3)};
 
   ${(props) => props.custom && customText};
 `;
@@ -59,7 +56,7 @@ const H4 = styled.h4`
   color: ${(props) => props.theme.colors.black};
   font-size: ${(props) => props.theme.fontSize.sm};
   font-weight: ${(props) => props.theme.fontWeight.light};
-  line-height: ${(props) => props.theme.rhythm(3)};
+  line-height: ${(props) => props.theme.rhythm(5)};
   margin: 0;
   text-transform: uppercase;
 
