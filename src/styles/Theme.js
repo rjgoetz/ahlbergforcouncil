@@ -1,10 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { lighten } from 'polished';
 
 const theme = {
   colors: {
-    black: '#0d1b2a',
+    black: '#212121',
     primary: '#1b5633',
+    secondary: `${lighten(0.25, '#1b5633')}`,
     ltGrey: '#eceff1',
     white: '#fff',
   },

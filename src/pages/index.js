@@ -1,22 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Row, Column } from 'Components/Grid';
 import Banner from 'Components/Banner';
 import Layout from 'Components/Layout';
 import SEO from 'Components/SEO';
 import Type from 'Components/Type';
-import DonateBox from 'Components/DonateBox';
 import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
 import Link from 'Components/Link';
 import JoshImage from 'Images/josh-hero.jpg';
 import JoshImageMobile from 'Images/josh-hero-mobile.jpg';
+import JoshImageTablet from 'Images/josh-hero-tablet.jpg';
 
 const HomeBanner = (
   <Banner
     css={`
       background: url(${JoshImageMobile}) no-repeat center right;
       background-size: cover;
+      @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
+        background: url(${JoshImageTablet}) no-repeat center center;
+        background-size: cover;
+      }
       @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
         background: url(${JoshImage}) no-repeat center center;
         background-size: cover;
@@ -32,21 +35,14 @@ const HomeBanner = (
       css={`
         color: white;
         margin-bottom: 0px;
+        text-shadow: 2px 2px 4px ${(props) => props.theme.colors.black};
       `}
     >
-      <span
-        css={`
-          background: ${(props) => props.theme.colors.primary};
-          outline: 5px solid ${(props) => props.theme.colors.primary};
-          line-height: ${(props) => props.theme.rhythm(6)};
-        `}
-      >
-        Sensible.
-        <br />
-        Open.
-        <br />
-        Accountable.
-      </span>
+      Sensible.
+      <br />
+      Open.
+      <br />
+      Accountable.
     </Type>
   </Banner>
 );
@@ -55,14 +51,14 @@ const IndexPage = () => (
   <Layout banner={HomeBanner}>
     <SEO title="Home" />
 
-    {/* <Section noPad>
-      <DonateBox></DonateBox>
-    </Section> */}
-
     <Section>
       <Row>
         <Column md={6}>
-          <Type el="h1">Your voice. Our Edina.</Type>
+          <Type el="h1">
+            Your voice.
+            <br />
+            Our Edina.
+          </Type>
           <Type>
             My name is Joshua Ahlberg and I want to be your voice in our city. I
             am not a politician. I am a 40-year old husband and father of two

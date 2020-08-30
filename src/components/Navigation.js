@@ -8,6 +8,7 @@ const StyledNav = styled.nav`
 `;
 
 const StyledLinks = styled.ul`
+  font-size: ${(props) => props.theme.fontSize.sm};
   padding: 0;
   margin: 0;
   li {
@@ -43,13 +44,13 @@ const Navigation = () => {
           <Column xxl={{ column: 10, offset: 1 }}>
             <StyledLinks>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
                 <Link to="/about">My Story</Link>
               </li>
               <li>
                 <Link to="/goals">My Goals</Link>
+              </li>
+              <li>
+                <Link to="/volunteer">Volunteer</Link>
               </li>
             </StyledLinks>
           </Column>

@@ -2,7 +2,6 @@ import React from 'react';
 import { bool, oneOf } from 'prop-types';
 import styled from 'styled-components';
 import Link from 'Components/Link';
-import { lighten } from 'polished';
 
 const DefaultButton = styled.div`
   background: ${(props) => props.theme.colors[props.background]};
@@ -18,12 +17,19 @@ const DefaultButton = styled.div`
   font-size: ${(props) => props.theme.fontSize.sm};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.rhythm(3)};
-  padding: 10px;
+  padding: 6px 8px;
   text-align: center;
+  &:focus {
+    outline-color: ${(props) => props.theme.colors.secondary};
+  }
   &:active,
   &:hover {
-    background: ${(props) => lighten(0.25, props.theme.colors.primary)};
-  }
+    background: ${(props) =>
+      props.background === 'primary' &&
+      `${(props) => props.theme.colors.secondary};`};
+    ${(props) =>
+      props.background === 'white' &&
+      `color: ${props.theme.colors.secondary}; border-color: ${props.theme.colors.secondary};`}      
 `;
 
 const BlockButton = styled(DefaultButton)`

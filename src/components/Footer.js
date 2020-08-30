@@ -103,23 +103,26 @@ const Footer = () => {
               </Type>
               <ul>
                 <li>
-                  <Link to="#">josh@ahlbergforcouncil.org</Link>
+                  <Link to="mailto: josh@ahlbergforcouncil.org">
+                    josh@ahlbergforcouncil.org
+                  </Link>
                 </li>
                 <li
                   css={`
                     margin-bottom: ${(props) => props.theme.rhythm()};
                   `}
                 >
-                  <Link to="#">(612) 458-4817</Link>
+                  <Link to="tel: 6124584817">(612) 458-4817</Link>
                 </li>
                 <li
                   css={`
                     display: inline-block;
+                    margin-right: 10px;
                   `}
                 >
                   <Link to="#">
                     <i>
-                      <Facebook size={24}></Facebook>
+                      <Facebook size={30}></Facebook>
                     </i>
                   </Link>
                 </li>
@@ -131,7 +134,7 @@ const Footer = () => {
                   <Link to="#">
                     <i>
                       <Instagram
-                        size={24}
+                        size={30}
                         stroke="#1b5633"
                         strokeWidth={2}
                       ></Instagram>
@@ -152,7 +155,9 @@ const Footer = () => {
                 }
               `}
             >
-              <StyledLogo></StyledLogo>
+              <Link to="/">
+                <StyledLogo></StyledLogo>
+              </Link>
               <Type
                 color="white"
                 size="sm"

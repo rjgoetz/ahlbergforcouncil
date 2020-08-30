@@ -25,7 +25,7 @@ const H1 = styled.h1`
   font-size: ${(props) =>
     props.banner ? props.theme.fontSize.xl : props.theme.fontSize.xl};
   font-weight: ${(props) => props.theme.fontWeight.medium};
-  line-height: ${(props) => props.theme.rhythm(6)};
+  line-height: ${(props) => props.theme.rhythm(8)};
   margin: 0 0
     ${(props) => (props.banner ? props.theme.rhythm(8) : props.theme.rhythm())};
 
