@@ -53,12 +53,12 @@ const Volunteer = () => {
           lastName,
           telephone,
           email,
+        }),
+      })
+        .then(() => {
+          console.log('fire redirect');
         })
-          .then(() => {
-            console.log('fire redirect');
-          })
-          .catch((error) => console.log(error)),
-      });
+        .catch((error) => console.log(error));
     }
   }
 
