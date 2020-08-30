@@ -17,7 +17,7 @@ const DefaultButton = styled.div`
   font-size: ${(props) => props.theme.fontSize.sm};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.rhythm(3)};
-  padding: 6px 8px;
+  padding: ${(props) => props.theme.rhythm(1)} 8px;
   text-align: center;
   &:focus {
     outline-color: ${(props) => props.theme.colors.secondary};

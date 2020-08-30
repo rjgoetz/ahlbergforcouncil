@@ -1,42 +1,67 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
-import Wrapper from 'Components/Wrapper';
+import { Form, Control, Label, Input, encode } from 'Components/Form';
 import Section from 'Components/Section';
 import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Button from 'Components/Button';
-
-const StyledForm = styled.form`
-  background: ${(props) => props.theme.colors.ltGrey};
-  padding: ${(props) => props.theme.rhythm()} 20px;
-`;
-
-const StyledControl = styled.div`
-  margin-bottom: ${(props) => props.theme.rhythm(2)};
-`;
-
-const StyledLabel = styled.label`
-  display: block;
-  font-size: ${(props) => props.theme.fontSize.sm};
-  margin-right: 20px;
-`;
-
-const StyledInput = styled.input`
-  border: 2px solid ${(props) => props.theme.colors.primary};
-  border-radius: 0px;
-  font-size: ${(props) => props.theme.fontSize.sm};
-  height: ${(props) => props.theme.rhythm(5)};
-  padding: 5px;
-  width: 100%;
-  &:focus {
-    border-radius: 0px;
-    outline-color: ${(props) => props.theme.colors.secondary};
-  }
-`;
+import ErrorBox from 'Components/ErrorBox';
 
 const Volunteer = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [telephone, setTelephone] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
+
+  function handleChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    switch (name) {
+      case 'firstName':
+        setFirstName(value);
+        break;
+      case 'lastName':
+        setLastName(value);
+        break;
+      case 'telephone':
+        setTelephone(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      default:
+        console.log(e);
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!firstName || !lastName || !telephone || !email) {
+      setError(true);
+      window.scroll(0, 0);
+    } else {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'volunteer',
+          firstName,
+          lastName,
+          telephone,
+          email,
+        })
+          .then(() => {
+            console.log('fire redirect');
+          })
+          .catch((error) => console.log(error)),
+      });
+    }
+  }
+
   return (
     <Layout>
       <SEO title="Volunteer"></SEO>
@@ -67,49 +92,60 @@ const Volunteer = () => {
               </Column>
 
               <Column md={6} xl={{ column: 5, offset: 1 }}>
-                <StyledForm
-                  method="post"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  name="volunteer"
-                >
+                <Form name="volunteer" onSubmit={handleSubmit}>
+                  {error && <ErrorBox>Please complete all fields.</ErrorBox>}
+
                   <Type el="h3">Volunteer Interest</Type>
-                  <StyledControl>
-                    <StyledLabel htmlFor="firstName">First Name </StyledLabel>
+                  <Control>
+                    <Label htmlFor="firstName">First Name </Label>
 
-                    <StyledInput type="text" id="firstName" name="firstName" />
-                  </StyledControl>
+                    <Input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      onChange={handleChange}
+                    />
+                  </Control>
 
-                  <StyledControl>
-                    <StyledLabel htmlFor="lastName">Last Name </StyledLabel>
+                  <Control>
+                    <Label htmlFor="lastName">Last Name </Label>
 
-                    <StyledInput type="text" id="lastName" name="lastName" />
-                  </StyledControl>
+                    <Input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      onChange={handleChange}
+                    />
+                  </Control>
 
-                  <StyledControl>
-                    <StyledLabel htmlFor="telephone">
-                      Telephone Number
-                    </StyledLabel>
+                  <Control>
+                    <Label htmlFor="telephone">Telephone Number</Label>
 
-                    <StyledInput
+                    <Input
                       type="telephone"
                       id="telephone"
                       name="telephone"
+                      onChange={handleChange}
                     />
-                  </StyledControl>
+                  </Control>
 
-                  <StyledControl
+                  <Control
                     css={`
                       margin-bottom: ${(props) => props.theme.rhythm()};
                     `}
                   >
-                    <StyledLabel htmlFor="email">Email Address </StyledLabel>
+                    <Label htmlFor="email">Email Address </Label>
 
-                    <StyledInput type="email" id="email" name="email" />
-                  </StyledControl>
+                    <Input
+                      type="email"
+                      id="email"
+                      name="email"
+                      onChange={handleChange}
+                    />
+                  </Control>
 
                   <Button block>Submit</Button>
-                </StyledForm>
+                </Form>
               </Column>
             </Row>
           </Column>

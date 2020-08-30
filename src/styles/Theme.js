@@ -7,6 +7,8 @@ const theme = {
     black: '#212121',
     primary: '#1b5633',
     secondary: `${lighten(0.25, '#1b5633')}`,
+    red: '#D50000',
+    ltRed: `${lighten(0.5, '#D50000')}`,
     ltGrey: '#eceff1',
     white: '#fff',
   },
