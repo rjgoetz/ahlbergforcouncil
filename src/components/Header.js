@@ -92,29 +92,40 @@ const Header = () => {
                     css={`
                       font-size: ${(props) => props.theme.fontSize.sm};
                     `}
+                    external
                   >
                     (612) 458-4817
                   </Link>
                 </GetInTouch>
                 <Social>
-                  <Link to="/">
+                  <Link
+                    to="/"
+                    css={`
+                      line-height: 22px;
+                    `}
+                  >
                     <Facebook
                       size={22}
                       css={`
                         fill: ${(props) => props.theme.colors.primary};
                         stroke: ${(props) => props.theme.colors.primary};
-                        margin-right: 10px;
+                        margin: 0 5px;
                       `}
                     ></Facebook>
                   </Link>
 
-                  <Link to="/">
+                  <Link
+                    to="/"
+                    css={`
+                      line-height: 22px;
+                    `}
+                  >
                     <Instagram
                       size={22}
                       css={`
                         fill: ${(props) => props.theme.colors.primary};
                         stroke: white;
-                        margin-right: 10px;
+                        margin: 0 5px;
                       `}
                     ></Instagram>
                   </Link>
@@ -124,12 +135,14 @@ const Header = () => {
                     css={`
                       font-size: ${(props) => props.theme.fontSize.sm};
                     `}
+                    external
                   >
                     <Mail
                       size={22}
                       css={`
                         fill: ${(props) => props.theme.colors.primary};
                         stroke: white;
+                        margin: 0 5px;
                         margin-right: 10px;
                       `}
                     ></Mail>

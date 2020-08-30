@@ -33,44 +33,41 @@ const About = () => (
       <Row>
         <Column md={9}>
           <Type el="h4">My Story</Type>
-          <Type el="h1">Etiam ac felis sed diam consequat molestie.</Type>
+          <Type el="h1">Proud to call Edina my home</Type>
           <Type>
-            Sed ut sapien fringilla, aliquet tortor et, rhoncus nisi. Sed
-            iaculis nec ante sed condimentum. Aenean non cursus sem. Proin
-            scelerisque volutpat est sit amet sodales. Etiam id ligula porta,
-            commodo sapien et, scelerisque tortor. Donec erat lorem, iaculis id
-            congue nec, sollicitudin eleifend tortor. Orci varius natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Ut non feugiat felis. Mauris a elit congue, tempus eros nec, dapibus
-            augue. Suspendisse sit amet libero vitae ipsum venenatis suscipit.
-            Duis venenatis pretium nisl at aliquam. Integer bibendum sapien eu
-            posuere bibendum.
+            I'm proud to be a homegrown Minnesotan. I grew up just west of here
+            in Wayzata as one of 5 children who attended Orono Public Schools.
+            Throughout my early years I was inspired by my parents who instilled
+            in me a sense of humility, integrity, sticktoitness, and humanity.
+            To this day they inspire me to be a better person, always actively
+            listening, challenging conventional thought, and encouraging me to
+            do more.
           </Type>
 
           <Type>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada
-            fames ac turpis egestas. Etiam ac felis sed diam consequat molestie.
-            Vivamus dictum enim ut urna hendrerit facilisis pulvinar ac nunc.
-            Donec a nibh cursus, rutrum arcu bibendum, volutpat elit. In eget
-            suscipit elit. Proin tincidunt ultrices rhoncus. Integer lobortis
-            mollis lectus, non convallis lacus tempor at. Praesent in iaculis
-            ipsum, ut porttitor massa. Cras sed libero varius, venenatis nisl
-            sit amet, condimentum nisl. Ut eget nunc egestas, fringilla elit
-            vel, consequat urna. Nulla odio odio, condimentum a enim eu,
-            tincidunt ornare risus. Ut sem dui, dignissim at purus a, feugiat
-            condimentum turpis. Orci varius natoque penatibus et magnis dis
-            parturient montes, nascetur ridiculus mus.
+            After graduating from Orono High School in 1998, I attended the
+            University of Minnesota and graduated, landing a job as a
+            professional marketer. That career choice has led me to work with
+            some incredibly talented people &mdash; and created opportunity for
+            me to move to Connecticut, New York, and eventually back to
+            Minnesota where I met my wife.
           </Type>
 
           <Type>
-            Aliquam non nulla nulla. Quisque mattis semper ante, ut aliquam mi
-            feugiat ac. Fusce dolor velit, bibendum sit amet placerat quis,
-            imperdiet quis ante. Sed mattis suscipit ex, pellentesque molestie
-            odio vulputate non. Pellentesque eu congue quam, nec scelerisque
-            nunc. Curabitur eget lacinia neque. Nullam quis porta felis.
-            Maecenas eu quam porta, aliquet risus pulvinar, pellentesque augue.
-            Fusce ultricies urna sit amet diam malesuada luctus.
+            Kelli and I moved to Edina in 2011, and could not be happier. Over
+            those past 9 years, we've moved once, had two children, adopted 3
+            dogs, and pulled a ton of buckthorn along the way.
           </Type>
+
+          <Type>
+            I love this city, and I want to ensure we make the right strategic
+            decisions to preserve it for those who made the same choice as we
+            did and bought a home here, but also consider the long-term needs of
+            the community to ensure its livability and ongoing marketability as
+            a premier place to live in the metro area.
+          </Type>
+
+          <Type>&mdash; Josh</Type>
         </Column>
       </Row>
     </Section>

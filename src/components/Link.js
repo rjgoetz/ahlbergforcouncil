@@ -28,7 +28,7 @@ const ExternalLink = styled.a`
     text-decoration: underline;
   }
   &:focus {
-    outline-color: ${(props) => props.theme.colors.primary};
+    outline-color: ${(props) => props.theme.colors.secondary};
   }
 `;
 

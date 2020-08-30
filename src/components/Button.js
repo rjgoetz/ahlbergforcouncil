@@ -25,11 +25,12 @@ const DefaultButton = styled.div`
   &:active,
   &:hover {
     background: ${(props) =>
-      props.background === 'primary' &&
-      `${(props) => props.theme.colors.secondary};`};
-    ${(props) =>
-      props.background === 'white' &&
-      `color: ${props.theme.colors.secondary}; border-color: ${props.theme.colors.secondary};`}      
+      props.background === 'primary' && props.theme.colors.secondary};
+    color: ${(props) =>
+      props.background === 'white' && props.theme.colors.secondary};
+    border-color: ${(props) =>
+      props.background === 'white' && props.theme.colors.secondary};
+  }
 `;
 
 const BlockButton = styled(DefaultButton)`

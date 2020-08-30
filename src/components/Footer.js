@@ -103,7 +103,7 @@ const Footer = () => {
               </Type>
               <ul>
                 <li>
-                  <Link to="mailto: josh@ahlbergforcouncil.org">
+                  <Link to="mailto: josh@ahlbergforcouncil.org" external>
                     josh@ahlbergforcouncil.org
                   </Link>
                 </li>
@@ -112,7 +112,9 @@ const Footer = () => {
                     margin-bottom: ${(props) => props.theme.rhythm()};
                   `}
                 >
-                  <Link to="tel: 6124584817">(612) 458-4817</Link>
+                  <Link to="tel: 6124584817" external>
+                    (612) 458-4817
+                  </Link>
                 </li>
                 <li
                   css={`
