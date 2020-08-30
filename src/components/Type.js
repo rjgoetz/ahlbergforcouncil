@@ -47,7 +47,7 @@ const H3 = styled.h3`
   font-size: ${(props) => props.theme.fontSize.md};
   font-weight: ${(props) => props.theme.fontWeight.medium};
   line-height: ${(props) => props.theme.rhythm(3)};
-  margin: 0 0 ${(props) => props.theme.rhythm(1)};
+  margin: 0 0 ${(props) => props.theme.rhythm(2)};
 
   ${(props) => props.custom && customText};
 `;
