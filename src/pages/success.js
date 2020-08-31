@@ -7,7 +7,11 @@ import Type from 'Components/Type';
 import Link from 'Components/Link';
 
 const Success = ({ location }) => {
-  const { message } = location.state;
+  let message = '';
+
+  if (location && location.state && location.state.message) {
+    message = location.state.message;
+  }
 
   return (
     <Layout>
