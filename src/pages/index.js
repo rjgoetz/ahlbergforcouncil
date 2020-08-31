@@ -8,44 +8,63 @@ import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
 import Link from 'Components/Link';
 import SuggestionForm from 'Components/SuggestionForm';
+import { StaticQuery, graphql } from 'gatsby';
+
 import JoshImage2x from 'Images/josh-hero@2x.jpg';
 import JoshImageMobile2x from 'Images/josh-hero-mobile@2x.jpg';
 import JoshImageTablet2x from 'Images/josh-hero-tablet@2x.jpg';
 
+// css={`
+//       background: url(${JoshImageMobile2x}) no-repeat center right;
+//       background-size: cover;
+//       @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
+//         background: url(${JoshImageTablet2x}) no-repeat center center;
+//         background-size: cover;
+//       }
+//       @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
+//         background: url(${JoshImage2x}) no-repeat center center;
+//         background-size: cover;
+//       }
+//       @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
+//         background: url(${JoshImage2x}) no-repeat center center;
+//         background-size: contain;
+//       }
+//     `}
+
 const HomeBanner = (
-  <Banner
-    css={`
-      background: url(${JoshImageMobile2x}) no-repeat center right;
-      background-size: cover;
-      @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-        background: url(${JoshImageTablet2x}) no-repeat center center;
-        background-size: cover;
-      }
-      @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-        background: url(${JoshImage2x}) no-repeat center center;
-        background-size: cover;
-      }
-      @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-        background: url(${JoshImage2x}) no-repeat center center;
-        background-size: contain;
+  <StaticQuery
+    query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "josh-hero@2x.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
-  >
-    <Type
-      el="h1"
-      css={`
-        color: white;
-        margin-bottom: 0px;
-        text-shadow: 2px 2px 4px ${(props) => props.theme.colors.black};
-      `}
-    >
-      Sensible.
-      <br />
-      Open.
-      <br />
-      Accountable.
-    </Type>
-  </Banner>
+    render={(data) => {
+      return (
+        <Banner data={data}>
+          <Type
+            el="h1"
+            css={`
+              color: white;
+              margin-bottom: 0px;
+              text-shadow: 2px 2px 4px ${(props) => props.theme.colors.black};
+            `}
+          >
+            Sensible.
+            <br />
+            Open.
+            <br />
+            Accountable.
+          </Type>
+        </Banner>
+      );
+    }}
+  ></StaticQuery>
 );
 
 const IndexPage = () => (

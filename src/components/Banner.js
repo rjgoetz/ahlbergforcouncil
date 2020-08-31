@@ -16,6 +16,20 @@ const BannerBox = styled.div`
     background-position-x: center;
     background-size: contain;
   }
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1600px;
+    }
+  }
 `;
 
 const BannerText = styled.div`
@@ -28,9 +42,19 @@ const BannerText = styled.div`
   }
 `;
 
-const Banner = ({ children, ...props }) => {
+const Banner = ({ data, children, ...props }) => {
   return (
     <BannerBox {...props}>
+      {data &&
+        data.desktop &&
+        data.desktop.childImageSharp &&
+        data.desktop.childImageSharp.fluid &&
+        data.desktop.childImageSharp.fluid.src && (
+          <img
+            src={data.desktop.childImageSharp.fluid.src}
+            alt="Josh Ahlberg"
+          />
+        )}
       <Container
         css={`
           height: 100%;
