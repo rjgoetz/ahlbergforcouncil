@@ -8,25 +8,25 @@ import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
 import Link from 'Components/Link';
 import SuggestionForm from 'Components/SuggestionForm';
-import JoshImage from 'Images/josh-hero.jpg';
-import JoshImageMobile from 'Images/josh-hero-mobile.jpg';
-import JoshImageTablet from 'Images/josh-hero-tablet.jpg';
+import JoshImage2x from 'Images/josh-hero@2x.jpg';
+import JoshImageMobile2x from 'Images/josh-hero-mobile@2x.jpg';
+import JoshImageTablet2x from 'Images/josh-hero-tablet@2x.jpg';
 
 const HomeBanner = (
   <Banner
     css={`
-      background: url(${JoshImageMobile}) no-repeat center right;
+      background: url(${JoshImageMobile2x}) no-repeat center right;
       background-size: cover;
       @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-        background: url(${JoshImageTablet}) no-repeat center center;
+        background: url(${JoshImageTablet2x}) no-repeat center center;
         background-size: cover;
       }
       @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-        background: url(${JoshImage}) no-repeat center center;
+        background: url(${JoshImage2x}) no-repeat center center;
         background-size: cover;
       }
       @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-        background: url(${JoshImage}) no-repeat center center;
+        background: url(${JoshImage2x}) no-repeat center center;
         background-size: contain;
       }
     `}

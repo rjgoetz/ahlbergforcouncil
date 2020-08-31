@@ -5,20 +5,25 @@ import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Banner from 'Components/Banner';
 import Section from 'Components/Section';
-import FamilyImage from 'Images/ahlberg-family.jpg';
-import FamilyImageMobile from 'Images/ahlberg-family.jpg';
+import FamilyImage2x from 'Images/ahlberg-family@2x.jpg';
+import FamilyImageMobile2x from 'Images/ahlberg-family-mobile@2x.jpg';
+import FamilyImageTablet2x from 'Images/ahlberg-family-tablet@2x.jpg';
 
 const AboutBanner = (
   <Banner
     css={`
-      background: url(${FamilyImageMobile}) no-repeat center center;
+      background: url(${FamilyImageMobile2x}) no-repeat center center;
       background-size: cover;
+      @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
+        background: url(${FamilyImageTablet2x}) no-repeat center center;
+        background-size: cover;
+      }
       @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-        background: url(${FamilyImage}) no-repeat center center;
+        background: url(${FamilyImage2x}) no-repeat center center;
         background-size: cover;
       }
       @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-        background: url(${FamilyImage}) no-repeat center center;
+        background: url(${FamilyImage2x}) no-repeat center center;
         background-size: contain;
       }
     `}
