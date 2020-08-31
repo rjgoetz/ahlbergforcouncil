@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Form, Input, Control, Label, TextArea, encode } from 'Components/Form';
-import Type from 'Components/Type';
+import { Form, Control, Label, Input, encode } from 'Components/Form';
 import Button from 'Components/Button';
 import Loader from 'Components/Loader';
+import Type from 'Components/Type';
 
-const SuggestionForm = () => {
-  const [name, setName] = useState('');
+const VolunteerForm = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [telephone, setTelephone] = useState('');
   const [email, setEmail] = useState('');
-  const [suggestions, setSuggestions] = useState('');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -20,14 +21,17 @@ const SuggestionForm = () => {
     const value = e.target.value;
 
     switch (name) {
-      case 'name':
-        setName(value);
+      case 'firstName':
+        setFirstName(value);
+        break;
+      case 'lastName':
+        setLastName(value);
+        break;
+      case 'telephone':
+        setTelephone(value);
         break;
       case 'email':
         setEmail(value);
-        break;
-      case 'suggestions':
-        setSuggestions(value);
         break;
       default:
         console.log(e.target.value);
@@ -39,18 +43,20 @@ const SuggestionForm = () => {
 
     setLoading(true);
 
-    if (!name || !email || !suggestions) {
+    if (!firstName || !lastName || !telephone || !email) {
       setError({ isError: true, message: 'Please complete all fields.' });
       setLoading(false);
+      window.scroll(0, 0);
     } else {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'Suggestion',
-          name,
+          'form-name': 'Volunteer',
+          firstName,
+          lastName,
+          telephone,
           email,
-          suggestions,
         }),
       })
         .then(() => {
@@ -58,7 +64,7 @@ const SuggestionForm = () => {
           setRedirect({
             fireRedirect: true,
             message:
-              'We appreciate your contribution and willingness to share.',
+              'A campaign representative will be in touch with you soon.',
           });
         })
         .catch((err) => {
@@ -70,22 +76,43 @@ const SuggestionForm = () => {
 
   return (
     <Form
-      name="suggestion"
+      name="volunteer"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
     >
-      <Type el="h3">Share your voice.</Type>
+      <Type el="h3">Please complete</Type>
       <Control>
-        <Label htmlFor="name">Full Name</Label>
+        <Label htmlFor="firstName">First Name </Label>
 
-        <Input type="text" id="name" name="name" onChange={handleChange} />
+        <Input
+          type="text"
+          id="firstName"
+          name="firstName"
+          onChange={handleChange}
+        />
       </Control>
 
       <Control>
-        <Label htmlFor="email">Email Address </Label>
+        <Label htmlFor="lastName">Last Name </Label>
 
-        <Input type="email" id="email" name="email" onChange={handleChange} />
+        <Input
+          type="text"
+          id="lastName"
+          name="lastName"
+          onChange={handleChange}
+        />
+      </Control>
+
+      <Control>
+        <Label htmlFor="telephone">Telephone Number</Label>
+
+        <Input
+          type="tel"
+          id="telephone"
+          name="telephone"
+          onChange={handleChange}
+        />
       </Control>
 
       <Control
@@ -93,14 +120,9 @@ const SuggestionForm = () => {
           margin-bottom: ${(props) => props.theme.rhythm()};
         `}
       >
-        <Label htmlFor="suggestions">Your Ideas</Label>
-        <TextArea
-          name="suggestions"
-          id="suggestions"
-          cols="30"
-          rows="10"
-          onChange={handleChange}
-        ></TextArea>
+        <Label htmlFor="email">Email Address </Label>
+
+        <Input type="email" id="email" name="email" onChange={handleChange} />
       </Control>
 
       <Button block>{loading ? <Loader width={24}></Loader> : 'Send'}</Button>
@@ -108,4 +130,4 @@ const SuggestionForm = () => {
   );
 };
 
-export default SuggestionForm;
+export default VolunteerForm;

@@ -1,80 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
-import { Form, Control, Label, Input, encode } from 'Components/Form';
 import Section from 'Components/Section';
 import SEO from 'Components/SEO';
 import Type from 'Components/Type';
-import Button from 'Components/Button';
-import Loader from 'Components/Loader';
+import VolunteerForm from 'Components/VolunteerForm';
 
 const Volunteer = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [telephone, setTelephone] = useState('');
-  const [email, setEmail] = useState({ fireRedirect: false, message: '' });
-  const [error, setError] = useState({ isError: false, message: '' });
-  const [loading, setLoading] = useState(false);
-  const [redirect, setRedirect] = useState(false);
-
-  function handleChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    switch (name) {
-      case 'firstName':
-        setFirstName(value);
-        break;
-      case 'lastName':
-        setLastName(value);
-        break;
-      case 'telephone':
-        setTelephone(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      default:
-        console.log(e);
-    }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    setLoading(true);
-
-    if (!firstName || !lastName || !telephone || !email) {
-      setError({ isError: true, message: 'Please complete all fields.' });
-      setLoading(false);
-      window.scroll(0, 0);
-    } else {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'volunteer',
-          firstName,
-          lastName,
-          telephone,
-          email,
-        }),
-      })
-        .then(() => {
-          setLoading(false);
-          setRedirect({
-            fireRedirect: true,
-            message:
-              'A campaign representative will be in touch with you soon.',
-          });
-        })
-        .catch((err) => {
-          setLoading(false);
-          setError({ isError: true, message: err });
-        });
-    }
-  }
-
   return (
     <Layout>
       <SEO title="Volunteer"></SEO>
@@ -104,65 +36,7 @@ const Volunteer = () => {
                 lg={{ column: 5, offset: 1 }}
                 xl={{ column: 5, offset: 2 }}
               >
-                <Form
-                  name="volunteer"
-                  error={error}
-                  redirect={redirect}
-                  onSubmit={handleSubmit}
-                >
-                  <Type el="h3">Please complete</Type>
-                  <Control>
-                    <Label htmlFor="firstName">First Name </Label>
-
-                    <Input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      onChange={handleChange}
-                    />
-                  </Control>
-
-                  <Control>
-                    <Label htmlFor="lastName">Last Name </Label>
-
-                    <Input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      onChange={handleChange}
-                    />
-                  </Control>
-
-                  <Control>
-                    <Label htmlFor="telephone">Telephone Number</Label>
-
-                    <Input
-                      type="tel"
-                      id="telephone"
-                      name="telephone"
-                      onChange={handleChange}
-                    />
-                  </Control>
-
-                  <Control
-                    css={`
-                      margin-bottom: ${(props) => props.theme.rhythm()};
-                    `}
-                  >
-                    <Label htmlFor="email">Email Address </Label>
-
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      onChange={handleChange}
-                    />
-                  </Control>
-
-                  <Button block>
-                    {loading ? <Loader width={24}></Loader> : 'Send'}
-                  </Button>
-                </Form>
+                <VolunteerForm></VolunteerForm>
               </Column>
             </Row>
           </Column>
