@@ -161,7 +161,7 @@ const Header = () => {
                   justify-content: flex-end;
                 `}
               >
-                <YardSign>
+                <YardSign isLink to="/yard-sign">
                   <span
                     css={`
                       display: none;
@@ -221,7 +221,9 @@ const Header = () => {
                     </g>
                   </svg>
                 </YardSign>
-                <Button background="white">Donate</Button>
+                <Button isLink to="/donate" background="white">
+                  Donate
+                </Button>
               </Column>
             </Row>
           </Column>

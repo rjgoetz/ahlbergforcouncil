@@ -4,9 +4,10 @@ import Button from 'Components/Button';
 import Loader from 'Components/Loader';
 import Type from 'Components/Type';
 
-const VolunteerForm = () => {
+const YardSignForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
   const [telephone, setTelephone] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState({ isError: false, message: '' });
@@ -27,6 +28,9 @@ const VolunteerForm = () => {
       case 'lastName':
         setLastName(value);
         break;
+      case 'address':
+        setAddress(value);
+        break;
       case 'telephone':
         setTelephone(value);
         break;
@@ -43,7 +47,7 @@ const VolunteerForm = () => {
 
     setLoading(true);
 
-    if (!firstName || !lastName || !telephone || !email) {
+    if (!firstName || !lastName || !address || !telephone || !email) {
       setError({ isError: true, message: 'Please complete all fields.' });
       setLoading(false);
       window.scroll(0, 0);
@@ -52,9 +56,10 @@ const VolunteerForm = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'Volunteer',
+          'form-name': 'Yard Sign Request',
           firstName,
           lastName,
+          address,
           telephone,
           email,
         }),
@@ -76,7 +81,7 @@ const VolunteerForm = () => {
 
   return (
     <Form
-      name="volunteer"
+      name="yard-sign"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
@@ -100,6 +105,17 @@ const VolunteerForm = () => {
           type="text"
           id="lastName"
           name="lastName"
+          onChange={handleChange}
+        />
+      </Control>
+
+      <Control>
+        <Label htmlFor="address">Complete Address</Label>
+
+        <Input
+          type="text"
+          id="address"
+          name="address"
           onChange={handleChange}
         />
       </Control>
@@ -130,4 +146,4 @@ const VolunteerForm = () => {
   );
 };
 
-export default VolunteerForm;
+export default YardSignForm;

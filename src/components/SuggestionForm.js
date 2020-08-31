@@ -83,7 +83,7 @@ const SuggestionForm = () => {
       </Control>
 
       <Control>
-        <Label htmlFor="email">Email Address </Label>
+        <Label htmlFor="email">Email Address</Label>
 
         <Input type="email" id="email" name="email" onChange={handleChange} />
       </Control>
