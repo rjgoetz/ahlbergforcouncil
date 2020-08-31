@@ -7,6 +7,7 @@ import Loader from 'Components/Loader';
 const SuggestionForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [suggestions, setSuggestions] = useState('');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -25,8 +26,11 @@ const SuggestionForm = () => {
       case 'email':
         setEmail(value);
         break;
+      case 'suggestions':
+        setSuggestions(value);
+        break;
       default:
-        console.log(e);
+        console.log(e.target.value);
     }
   }
 
@@ -35,10 +39,9 @@ const SuggestionForm = () => {
 
     setLoading(true);
 
-    if (!name || !email) {
+    if (!name || !email || !suggestions) {
       setError({ isError: true, message: 'Please complete all fields.' });
       setLoading(false);
-      window.scroll(0, 0);
     } else {
       fetch('/', {
         method: 'POST',
@@ -47,6 +50,7 @@ const SuggestionForm = () => {
           'form-name': 'suggestion',
           name,
           email,
+          suggestions,
         }),
       })
         .then(() => {
@@ -89,8 +93,14 @@ const SuggestionForm = () => {
           margin-bottom: ${(props) => props.theme.rhythm()};
         `}
       >
-        <Label htmlFor="comments">Your Ideas</Label>
-        <TextArea name="comments" id="comments" cols="30" rows="10"></TextArea>
+        <Label htmlFor="suggestions">Your Ideas</Label>
+        <TextArea
+          name="suggestions"
+          id="suggestions"
+          cols="30"
+          rows="10"
+          onChange={handleChange}
+        ></TextArea>
       </Control>
 
       <Button block>{loading ? <Loader width={24}></Loader> : 'Send'}</Button>
