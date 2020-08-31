@@ -62,6 +62,7 @@ const Goals = () => (
             &mdash; allowing ample time for community engagement to allow us to
             hit the mark with resident-driven changes made to our city.
           </Type>
+          <Type>&mdash; Josh</Type>
         </Column>
       </Row>
     </Section>

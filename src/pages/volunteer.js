@@ -6,14 +6,16 @@ import Section from 'Components/Section';
 import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Button from 'Components/Button';
-import ErrorBox from 'Components/ErrorBox';
+import Loader from 'Components/Loader';
 
 const Volunteer = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [telephone, setTelephone] = useState('');
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState(false);
+  const [email, setEmail] = useState({ fireRedirect: false, message: '' });
+  const [error, setError] = useState({ isError: false, message: '' });
+  const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   function handleChange(e) {
     const name = e.target.name;
@@ -40,8 +42,11 @@ const Volunteer = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
+    setLoading(true);
+
     if (!firstName || !lastName || !telephone || !email) {
-      setError(true);
+      setError({ isError: true, message: 'Please complete all fields.' });
+      setLoading(false);
       window.scroll(0, 0);
     } else {
       fetch('/', {
@@ -56,9 +61,17 @@ const Volunteer = () => {
         }),
       })
         .then(() => {
-          console.log('fire redirect');
+          setLoading(false);
+          setRedirect({
+            fireRedirect: true,
+            message:
+              'A campaign representative will be in touch with you soon.',
+          });
         })
-        .catch((error) => console.log(error));
+        .catch((err) => {
+          setLoading(false);
+          setError({ isError: true, message: err });
+        });
     }
   }
 
@@ -68,22 +81,17 @@ const Volunteer = () => {
 
       <Section>
         <Row>
-          <Column
-            sm={{ column: 10, offset: 1 }}
-            md={{ column: 12, offset: 0 }}
-            lg={{ column: 10, offset: 1 }}
-            xl={{ column: 11, offset: 0 }}
-          >
+          <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
             <Row>
               <Column
                 md={6}
-                xl={5}
+                lg={5}
                 css={`
                   margin-bottom: ${(props) => props.theme.rhythm()};
                 `}
               >
                 <Type el="h4">Volunteer</Type>
-                <Type el="h1">Join the Ahlberg for Council Campaign</Type>
+                <Type el="h1">Join the campaign.</Type>
                 <Type>
                   I would be honored to have you join the Ahlberg for Edina City
                   Council campaign. Please complete the volunteer interest form
@@ -91,11 +99,18 @@ const Volunteer = () => {
                 </Type>
               </Column>
 
-              <Column md={6} xl={{ column: 5, offset: 1 }}>
-                <Form name="volunteer" onSubmit={handleSubmit}>
-                  {error && <ErrorBox>Please complete all fields.</ErrorBox>}
-
-                  <Type el="h3">Volunteer Interest</Type>
+              <Column
+                md={6}
+                lg={{ column: 5, offset: 1 }}
+                xl={{ column: 5, offset: 2 }}
+              >
+                <Form
+                  name="volunteer"
+                  error={error}
+                  redirect={redirect}
+                  onSubmit={handleSubmit}
+                >
+                  <Type el="h3">Please complete</Type>
                   <Control>
                     <Label htmlFor="firstName">First Name </Label>
 
@@ -122,7 +137,7 @@ const Volunteer = () => {
                     <Label htmlFor="telephone">Telephone Number</Label>
 
                     <Input
-                      type="telephone"
+                      type="tel"
                       id="telephone"
                       name="telephone"
                       onChange={handleChange}
@@ -144,7 +159,9 @@ const Volunteer = () => {
                     />
                   </Control>
 
-                  <Button block>Submit</Button>
+                  <Button block>
+                    {loading ? <Loader width={24}></Loader> : 'Send'}
+                  </Button>
                 </Form>
               </Column>
             </Row>

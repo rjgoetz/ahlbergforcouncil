@@ -190,33 +190,33 @@ const Header = () => {
                     <g
                       id="yard-sign"
                       stroke="none"
-                      stroke-width="1"
+                      strokeWidth="1"
                       fill="none"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                     >
                       <path
                         d="M7.5,7.74223625 L7.5,82.2577637 L142.5,77.9657222 L142.5,12.0342778 L7.5,7.74223625 Z"
                         id="Rectangle"
                         stroke="#1B5633"
-                        stroke-width="15"
+                        strokeWidth="15"
                         fill="#FFFFFF"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                       ></path>
                       <path
                         d="M45.5,86.5 L45.5,143.679687"
                         id="Line-2"
                         stroke="#1B5633"
-                        stroke-width="15"
-                        stroke-linecap="square"
-                        fill-rule="nonzero"
+                        strokeWidth="15"
+                        strokeLinecap="square"
+                        fillRule="nonzero"
                       ></path>
                       <path
                         d="M111.5,80.5 L111.5,137.001953"
                         id="Line-2-Copy"
                         stroke="#1B5633"
-                        stroke-width="15"
-                        stroke-linecap="square"
-                        fill-rule="nonzero"
+                        strokeWidth="15"
+                        strokeLinecap="square"
+                        fillRule="nonzero"
                       ></path>
                     </g>
                   </svg>

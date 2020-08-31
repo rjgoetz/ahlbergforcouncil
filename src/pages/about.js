@@ -71,55 +71,6 @@ const About = () => (
         </Column>
       </Row>
     </Section>
-
-    <Section
-      background="ltGrey"
-      css={`
-        margin-bottom: 0;
-      `}
-    >
-      <Row>
-        <Column
-          md={4}
-          xxl={3}
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm()};
-          `}
-        >
-          <Type el="h2">Accomplishment 1</Type>
-          <Type>
-            Vestibulum id pretium erat. Morbi porta blandit mi, non pretium
-            lacus consectetur eu. Nam et sapien dapibus, vulputate ante a,
-            bibendum odio. Donec eget ultrices nisl. Vivamus turpis orci,
-            fermentum sit amet volutpat at, dignissim id mi.
-          </Type>
-        </Column>
-        <Column
-          md={4}
-          xxl={{ column: 3, offset: 1 }}
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm()};
-          `}
-        >
-          <Type el="h2">Accomplishment 2</Type>
-          <Type>
-            Aliquam condimentum in orci et semper. Fusce feugiat molestie
-            dignissim. Suspendisse potenti. Fusce vitae auctor erat. Sed vel
-            urna risus. Fusce vitae metus enim. Mauris dapibus mi ut accumsan
-            euismod.
-          </Type>
-        </Column>
-        <Column md={4} xxl={{ column: 3, offset: 1 }}>
-          <Type el="h2">Accomplishment 3</Type>
-          <Type>
-            Etiam ex sapien, ullamcorper sit amet lobortis in, consectetur vitae
-            tortor. Suspendisse eget ullamcorper sem, in pulvinar nisi.
-            Vestibulum suscipit, nulla non ultricies hendrerit, nibh nisi tempus
-            lacus, in accumsan mauris turpis in tellus.
-          </Type>
-        </Column>
-      </Row>
-    </Section>
   </Layout>
 );
 

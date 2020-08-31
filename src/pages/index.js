@@ -7,6 +7,7 @@ import Type from 'Components/Type';
 import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
 import Link from 'Components/Link';
+import SuggestionForm from 'Components/SuggestionForm';
 import JoshImage from 'Images/josh-hero.jpg';
 import JoshImageMobile from 'Images/josh-hero-mobile.jpg';
 import JoshImageTablet from 'Images/josh-hero-tablet.jpg';
@@ -53,43 +54,39 @@ const IndexPage = () => (
 
     <Section>
       <Row>
-        <Column md={6}>
-          <Type el="h1">
-            Your voice.
-            <br />
-            Our Edina.
-          </Type>
-          <Type>
-            My name is Joshua Ahlberg and I want to be your voice in our city. I
-            am not a politician. I am a 40-year old husband and father of two
-            young kids who wants to make a positive impact on his community by
-            focusing on what matters most: the desires of the residents. Integer
-            nulla nunc, feugiat at ligula vitae, efficitur faucibus ipsum. Cras
-            tempus placerat auctor.
-          </Type>
+        <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
+          <Row>
+            <Column md={6} xl={5}>
+              <Type el="h1">
+                Your voice.
+                <br />
+                Our Edina.
+              </Type>
+              <Type>
+                My name is Joshua Ahlberg and I want to be your voice in our
+                city. I am not a politician. I am a 40-year old husband and
+                father of two young kids who wants to make a positive impact on
+                his community by focusing on what matters most: the desires of
+                the residents.
+              </Type>
 
-          <Type
-            css={`
-              margin-bottom: ${(props) => props.theme.rhythm(8)};
-            `}
-          >
-            <Link to="/about/">More about my story &gt;</Link>
-          </Type>
-        </Column>
+              <Type
+                css={`
+                  margin-bottom: ${(props) => props.theme.rhythm(8)};
+                `}
+              >
+                <Link to="/about/">More about my story &gt;</Link>
+              </Type>
+            </Column>
 
-        <Column md={6} align="center" justify="center">
-          <div
-            css={`
-              background: ${(props) => props.theme.colors.ltGrey};
-              height: 240px;
-              width: 360px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            `}
-          >
-            <Type el="h3">Video</Type>
-          </div>
+            <Column
+              md={6}
+              lg={{ column: 5, offset: 1 }}
+              xl={{ column: 5, offset: 2 }}
+            >
+              <SuggestionForm></SuggestionForm>
+            </Column>
+          </Row>
         </Column>
       </Row>
     </Section>
@@ -101,84 +98,88 @@ const IndexPage = () => (
       `}
     >
       <Row>
-        <Column
-          md={4}
-          xxl={3}
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm()};
-          `}
-        >
-          <BigNumber>01</BigNumber>
-          <Type
-            el="h2"
-            size="xl"
-            css={`
-              line-height: ${(props) => props.theme.rhythm(6)};
-              margin-bottom: ${(props) => props.theme.rhythm()};
-            `}
-          >
-            Sensible
-          </Type>
+        <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
+          <Row>
+            <Column
+              md={4}
+              xxl={3}
+              css={`
+                margin-bottom: ${(props) => props.theme.rhythm()};
+              `}
+            >
+              <BigNumber>01</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Sensible
+              </Type>
+              <Type>
+                I plan to start asking ourselves how the initiatives were we
+                have under review for our city enhance the quality of life for
+                the residents of Edina.
+              </Type>
+            </Column>
+            <Column
+              md={4}
+              xxl={{ column: 3, offset: 1 }}
+              css={`
+                margin-bottom: ${(props) => props.theme.rhythm()};
+              `}
+            >
+              <BigNumber>02</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Open
+              </Type>
+              <Type>
+                Municipal government is apolitical. I plan on approaching each
+                and every interaction and proposal from a position of
+                independence and neutrality.
+              </Type>
+            </Column>
+            <Column
+              md={4}
+              xxl={{ column: 3, offset: 1 }}
+              css={`
+                margin-bottom: ${(props) => props.theme.rhythm()};
+              `}
+            >
+              <BigNumber>03</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Accountable
+              </Type>
+              <Type>
+                There is a pattern of outcry coming from all areas of the
+                community surrounding development / overdevelopment, which tells
+                me there are real communication, engagement, and planning
+                breakdowns between the city and its residents. It's time to
+                break that cycle.
+              </Type>
+            </Column>
+          </Row>
           <Type>
-            I plan to start asking ourselves how the initiatives were we have
-            under review for our city enhance the quality of life for the
-            residents of Edina. Quisque mattis semper ante, ut aliquam mi
-            feugiat ac.
-          </Type>
-        </Column>
-        <Column
-          md={4}
-          xxl={{ column: 3, offset: 1 }}
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm()};
-          `}
-        >
-          <BigNumber>02</BigNumber>
-          <Type
-            el="h2"
-            size="xl"
-            css={`
-              line-height: ${(props) => props.theme.rhythm(6)};
-              margin-bottom: ${(props) => props.theme.rhythm()};
-            `}
-          >
-            Open
-          </Type>
-          <Type>
-            Municipal government is apolitical. I plan on approaching each and
-            every interaction and proposal from a position of independence and
-            neutrality. Pellentesque eu congue quam, nec scelerisque nunc.
-          </Type>
-        </Column>
-        <Column
-          md={4}
-          xxl={{ column: 3, offset: 1 }}
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm()};
-          `}
-        >
-          <BigNumber>03</BigNumber>
-          <Type
-            el="h2"
-            size="xl"
-            css={`
-              line-height: ${(props) => props.theme.rhythm(6)};
-              margin-bottom: ${(props) => props.theme.rhythm()};
-            `}
-          >
-            Accountable
-          </Type>
-          <Type>
-            There is a pattern of outcry surrounding development /
-            overdevelopment, which tells me there are real communication,
-            engagement, and planning breakdowns between the city and its
-            residents. It's time to break that cycle.
+            <Link to="/goals">More about my goals &gt;</Link>
           </Type>
         </Column>
       </Row>
-      <Type>
-        <Link to="/goals">More about my goals &gt;</Link>
-      </Type>
     </Section>
   </Layout>
 );
