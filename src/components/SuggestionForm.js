@@ -66,7 +66,7 @@ const SuggestionForm = () => {
 
   return (
     <Form
-      name="volunteer"
+      name="suggestion"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
