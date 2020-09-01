@@ -1,83 +1,191 @@
 import React from 'react';
-import { Container, Row, Column } from 'Components/Grid';
+import { Row, Column } from 'Components/Grid';
+import Banner from 'Components/Banner';
 import Layout from 'Components/Layout';
-import Logo from 'Components/Logo';
-import Image from 'Components/Image';
 import Type from 'Components/Type';
-import styled from 'styled-components';
+import BigNumber from 'Components/BigNumber';
+import Section from 'Components/Section';
+import Link from 'Components/Link';
+import SuggestionForm from 'Components/SuggestionForm';
+import { StaticQuery, graphql } from 'gatsby';
 
-const TextBox = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-top: ${(props) => props.theme.rhythm(12)};
-
-  @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
-    height: 800px;
-    margin-top: 0;
-    flex-direction: row;
-  }
-`;
-
-const IndexPage = () => {
-  return (
-    <Layout>
-      <TextBox>
-        <div
-          css={`
-            text-align: center;
-            @media screen and (min-width: ${(props) =>
-                props.theme.viewPort.sm}) {
-              width: 66%;
+const HomeBanner = (
+  <StaticQuery
+    query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "josh-hero.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920, quality: 70) {
+              ...GatsbyImageSharpFluid
             }
-            @media screen and (min-width: ${(props) =>
-                props.theme.viewPort.lg}) {
-              margin: auto;
+          }
+        }
+        tablet: file(relativePath: { eq: "josh-hero-tablet.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 768, quality: 70) {
+              ...GatsbyImageSharpFluid
             }
-          `}
-        >
-          <Logo
-            css={`
-              margin-bottom: ${(props) => props.theme.rhythm(12)};
-              max-width: 300px;
-            `}
-          ></Logo>
+          }
+        }
+        mobile: file(relativePath: { eq: "josh-hero-mobile.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 576, quality: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => {
+      return (
+        <Banner data={data}>
           <Type
             el="h1"
-            banner
             css={`
-              text-align: center;
+              color: white;
+              margin-bottom: 0px;
+              text-shadow: 2px 2px 4px ${(props) => props.theme.colors.black};
             `}
           >
-            <span
+            Sensible.
+            <br />
+            Open.
+            <br />
+            Accountable.
+          </Type>
+        </Banner>
+      );
+    }}
+  ></StaticQuery>
+);
+
+const IndexPage = () => (
+  <Layout banner={HomeBanner}>
+    <Section>
+      <Row>
+        <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
+          <Row>
+            <Column md={6} xl={5}>
+              <Type el="h1">
+                Your Voice.
+                <br />
+                Our Edina.
+              </Type>
+              <Type>
+                My name is Josh Ahlberg and I want to be your voice in our city.
+                I am not an aspiring politician. I am a 40-year-old husband and
+                father of two young children who wants to make a positive impact
+                on our community by focusing on what matters most: the desires
+                of the residents.
+              </Type>
+
+              <Type
+                css={`
+                  margin-bottom: ${(props) => props.theme.rhythm(8)};
+                `}
+              >
+                <Link to="/about/">My Story &gt;</Link>
+              </Type>
+            </Column>
+
+            <Column
+              md={6}
+              lg={{ column: 5, offset: 1 }}
+              xl={{ column: 5, offset: 2 }}
+            >
+              <SuggestionForm></SuggestionForm>
+            </Column>
+          </Row>
+        </Column>
+      </Row>
+    </Section>
+
+    <Section
+      background="ltGrey"
+      css={`
+        margin-bottom: 0;
+      `}
+    >
+      <Row>
+        <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
+          <Row>
+            <Column
+              md={4}
+              xxl={3}
               css={`
-                font-size: ${(props) => props.theme.fontSize.xl};
-                line-height: ${(props) => props.theme.rhythm(7)};
-                margin: 0 5px;
+                margin-bottom: ${(props) => props.theme.rhythm()};
               `}
             >
-              HELP IS ON THE WAY.
-              <br />
-              COMING SOON.
-            </span>
+              <BigNumber>01</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Sensible
+              </Type>
+              <Type>
+                I will ask how City decisions enhance the quality of life for
+                Edina residents.
+              </Type>
+            </Column>
+            <Column
+              md={4}
+              xxl={{ column: 3, offset: 1 }}
+              css={`
+                margin-bottom: ${(props) => props.theme.rhythm()};
+              `}
+            >
+              <BigNumber>02</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Open
+              </Type>
+              <Type>
+                I will approach Council work and resident communications with
+                independence and neutrality.
+              </Type>
+            </Column>
+            <Column
+              md={4}
+              xxl={{ column: 3, offset: 1 }}
+              css={`
+                margin-bottom: ${(props) => props.theme.rhythm()};
+              `}
+            >
+              <BigNumber>03</BigNumber>
+              <Type
+                el="h2"
+                size="xl"
+                css={`
+                  line-height: ${(props) => props.theme.rhythm(6)};
+                  margin-bottom: ${(props) => props.theme.rhythm()};
+                `}
+              >
+                Accountable
+              </Type>
+              <Type>
+                I will ensure decision making includes resident engagement and
+                alignment with community needs.
+              </Type>
+            </Column>
+          </Row>
+          <Type>
+            <Link to="/positions">My Positions &gt;</Link>
           </Type>
-        </div>
-        <Image
-          src="ahlberg-family.jpg"
-          srcSet={{ '1x': 'ahlberg-family.jpg', '2x': 'ahlberg-family@2x.jpg' }}
-          alt="Ahlberg Family"
-          responsive
-          css={`
-            @media screen and (min-width: ${(props) =>
-                props.theme.viewPort.lg}) {
-              display: block;
-              width: 50%;
-            }
-          `}
-        ></Image>
-      </TextBox>
-    </Layout>
-  );
-};
+        </Column>
+      </Row>
+    </Section>
+  </Layout>
+);
 
 export default IndexPage;

@@ -1,10 +1,14 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { lighten } from 'polished';
 
 const theme = {
   colors: {
-    black: '#0d1b2a',
+    black: '#212121',
     primary: '#1b5633',
+    secondary: `${lighten(0.25, '#1b5633')}`,
+    red: '#D50000',
+    ltRed: `${lighten(0.5, '#D50000')}`,
     ltGrey: '#eceff1',
     white: '#fff',
   },
@@ -34,13 +38,13 @@ const theme = {
     bolder: 900,
   },
 
-  lineHeight: '1.5rem',
-  rootFontSize: '16px',
+  lineHeight: '1.7rem',
+  rootFontSize: '17px',
   rhythm(size = 4) {
     /*
       rootFontSize * lineHeight * 1/4 for more flexiblity
     */
-    return `${16 * 1.5 * 0.25 * size}px`;
+    return `${17 * 1.7 * 0.25 * size}px`;
   },
 
   viewPort: {
@@ -51,7 +55,7 @@ const theme = {
     xxl: '1920px',
   },
 
-  gutter: 15,
+  gutter: 20,
 };
 
 const Theme = ({ children }) => {

@@ -1,29 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import { rgba } from 'polished';
-import { Container } from 'Components/Grid';
+import Link from 'Components/Link';
+import { Container, Row, Column } from 'Components/Grid';
 
 const StyledNav = styled.nav`
-  background: ${(props) => rgba(props.theme.colors.black, 0.25)};
-  border-bottom: 1px solid ${(props) => props.theme.colors.white};
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+  background: ${(props) => props.theme.colors.primary};
 `;
 
 const StyledLinks = styled.ul`
+  font-size: ${(props) => props.theme.fontSize.sm};
   padding: 0;
   margin: 0;
   li {
-    color: ${(props) => props.theme.colors.white};
     display: inline-block;
-    font-weight: ${(props) => props.theme.fontWeight.bold};
-    line-height: ${(props) => props.theme.rhythm(6)};
-    margin-right: 15px;
-    &:active,
-    &:hover {
-      text-decoration: underline;
+    a {
+      color: ${(props) => props.theme.colors.white};
+      display: inline-block;
+      font-size: ${(props) => props.theme.fontSize.medium};
+      font-weight: ${(props) => props.theme.fontWeight.medium};
+      height: 100%;
+      line-height: ${(props) => props.theme.rhythm(6)};
+      margin-right: 20px;
+      &:active,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
+    li {
+      a {
+        margin-right: 40px;
+      }
     }
   }
 `;
@@ -32,11 +40,21 @@ const Navigation = () => {
   return (
     <StyledNav>
       <Container>
-        <StyledLinks>
-          <li>Home</li>
-          <li>My Goals</li>
-          <li>My Story</li>
-        </StyledLinks>
+        <Row>
+          <Column xxl={{ column: 10, offset: 1 }}>
+            <StyledLinks>
+              <li>
+                <Link to="/about">My Story</Link>
+              </li>
+              <li>
+                <Link to="/positions">My Positions</Link>
+              </li>
+              <li>
+                <Link to="/volunteer">Volunteer</Link>
+              </li>
+            </StyledLinks>
+          </Column>
+        </Row>
       </Container>
     </StyledNav>
   );

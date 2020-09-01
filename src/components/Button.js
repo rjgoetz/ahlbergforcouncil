@@ -1,7 +1,6 @@
 import React from 'react';
-import { bool, string, oneOf } from 'prop-types';
+import { bool, oneOf } from 'prop-types';
 import styled from 'styled-components';
-import { darken } from 'polished';
 import Link from 'Components/Link';
 
 const DefaultButton = styled.div`
@@ -18,15 +17,19 @@ const DefaultButton = styled.div`
   font-size: ${(props) => props.theme.fontSize.sm};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.rhythm(3)};
-  padding: 10px;
+  padding: ${(props) => props.theme.rhythm(1)} 8px;
   text-align: center;
+  &:focus {
+    outline-color: ${(props) => props.theme.colors.secondary};
+  }
   &:active,
   &:hover {
     background: ${(props) =>
-      props.background === 'primary' &&
-      darken(0.1, props.theme.colors[props.background])};
-    text-decoration: ${(props) =>
-      props.background === 'primary' ? 'none' : 'underline'};
+      props.background === 'primary' && props.theme.colors.secondary};
+    color: ${(props) =>
+      props.background === 'white' && props.theme.colors.secondary};
+    border-color: ${(props) =>
+      props.background === 'white' && props.theme.colors.secondary};
   }
 `;
 

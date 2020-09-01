@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Ahlberg for Edina City Council`,
-    description: `Vote for Joshua Ahlberg for Edina City Council this Fall 2020.`,
-    author: `RJ Goetz`,
+    description: `Sensible. Open. Accountable. Vote for Joshua Ahlberg for Edina City Council this Fall 2020.`,
+    author: `Joshua Ahlberg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,7 +14,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
