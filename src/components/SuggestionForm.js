@@ -47,7 +47,7 @@ const SuggestionForm = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'Suggestion',
+          'form-name': 'suggestion-form',
           name,
           email,
           suggestions,
@@ -70,7 +70,7 @@ const SuggestionForm = () => {
 
   return (
     <Form
-      name="suggestion"
+      name="suggestion-form"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}

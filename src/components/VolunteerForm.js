@@ -52,7 +52,7 @@ const VolunteerForm = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'Volunteer',
+          'form-name': 'volunteer-form',
           firstName,
           lastName,
           telephone,
@@ -76,7 +76,7 @@ const VolunteerForm = () => {
 
   return (
     <Form
-      name="volunteer"
+      name="volunteer-form"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
