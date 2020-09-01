@@ -65,7 +65,7 @@ const H4 = styled.h4`
 
 const List = styled.ul`
   list-style-type: ${(props) => (props.bullets ? 'square' : 'none')};
-  margin: 0 0 ${(props) => props.theme.rhythm()};
+  margin: 0 20px ${(props) => props.theme.rhythm()};
   padding: ${(props) => (props.bullets ? '0 20px' : '0')};
 
   ${(props) => props.custom && customText};

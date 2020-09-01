@@ -76,7 +76,7 @@ const Footer = () => {
                   <Link to="/about/">My Story</Link>
                 </li>
                 <li>
-                  <Link to="/goals/">My Goals</Link>
+                  <Link to="/position/">My Position</Link>
                 </li>
                 <li>
                   <Link to="/donate/">Donate</Link>
@@ -122,7 +122,10 @@ const Footer = () => {
                     margin-right: 10px;
                   `}
                 >
-                  <Link to="#">
+                  <Link
+                    to="https://www.facebook.com/pages/category/Political-Organization/Ahlberg-for-Council-104298258075316"
+                    external
+                  >
                     <i>
                       <Facebook size={30}></Facebook>
                     </i>
@@ -133,7 +136,10 @@ const Footer = () => {
                     display: inline-block;
                   `}
                 >
-                  <Link to="#">
+                  <Link
+                    to="https://www.instagram.com/ahlbergforcouncil"
+                    external
+                  >
                     <i>
                       <Instagram
                         size={30}

@@ -36,36 +36,39 @@ const About = () => (
           <Type el="h4">My Story</Type>
           <Type el="h1">Proud to call Edina my home</Type>
           <Type>
-            I'm proud to be a homegrown Minnesotan. I grew up just west of here
-            in Wayzata as one of 5 children who attended Orono Public Schools.
-            Throughout my early years I was inspired by my parents who instilled
-            in me a sense of humility, integrity, sticktoitness, and humanity.
-            To this day they inspire me to be a better person, always actively
-            listening, challenging conventional thought, and encouraging me to
-            do more.
+            I am a homegrown Minnesotan. I grew up in Wayzata as one of five
+            children who attended Orono Public Schools. My parents are a source
+            of inspiration for me. They encouraged their children to have a
+            sense of humility, integrity, stick-to-it-ness, and humanity. They
+            taught me to be a better person by actively listening, challenging
+            conventional thought, and encouraging me to go above and beyond
+            expectations.
           </Type>
 
           <Type>
-            After graduating from Orono High School in 1998, I attended the
-            University of Minnesota and graduated, landing a job as a
-            professional marketer. That career choice has led me to work with
-            some incredibly talented people &mdash; and created opportunity for
-            me to move to Connecticut, New York, and eventually back to
-            Minnesota where I met my wife.
+            I graduated high school in 1998, attended and graduated from the
+            University of Minnesota, and then began a career in marketing. My
+            job provided the opportunity to work with some incredibly talented
+            people and created moves to Connecticut, New York, and eventually
+            back to Minnesota, where I met my wife.
           </Type>
 
           <Type>
-            Kelli and I moved to Edina in 2011, and could not be happier. Over
-            those past 9 years, we've moved once, had two children, adopted 3
-            dogs, and pulled a ton of buckthorn along the way.
+            Kelli and I moved to Edina in 2011, attracted by the schools, parks,
+            and neighborhoods. I have become an active player in our community
+            through my work on sidewalk expansion and safety, and the community
+            engagement related to development of Braemar. Working on these
+            issues made me recognize opportunities to improve City processes.
           </Type>
 
           <Type>
-            I love this city, and I want to ensure we make the right strategic
-            decisions to preserve it for those who made the same choice as we
-            did and bought a home here, but also consider the long-term needs of
-            the community to ensure its livability and ongoing marketability as
-            a premier place to live in the metro area.
+            I love Edina, and I want to ensure that the City makes wise
+            strategic decisions that will result in a livable, walkable
+            community for my family and our residents – for years to come. Edina
+            currently faces a set of challenges that require thoughtful analysis
+            and action. As an Edina Council member, I will ensure the City is a
+            welcoming community that involves its residents in decision-making
+            processes.
           </Type>
 
           <Type>&mdash; Josh</Type>

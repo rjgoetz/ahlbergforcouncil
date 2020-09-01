@@ -23,11 +23,11 @@ const Volunteer = () => {
                 `}
               >
                 <Type el="h4">Volunteer</Type>
-                <Type el="h1">Join the campaign.</Type>
+                <Type el="h1">Looking to get involved?</Type>
                 <Type>
-                  I would be honored to have you join the Ahlberg for Edina City
-                  Council campaign. Please complete the volunteer interest form
-                  and I will be in touch.
+                  We're always looking for folks to help spread the word for the
+                  campaign. Fill out the form here and we'll be in touch with
+                  how you can help. Thank you!
                 </Type>
               </Column>
 

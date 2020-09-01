@@ -17,9 +17,9 @@ const StyledHeader = styled.header`
 
 const StyledLogo = styled(Logo)`
   vertical-align: middle;
-  width: 100px;
+  width: 110px;
   @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-    width: 125px;
+    width: 140px;
   }
 `;
 
@@ -99,7 +99,8 @@ const Header = () => {
                 </GetInTouch>
                 <Social>
                   <Link
-                    to="/"
+                    to="https://www.facebook.com/pages/category/Political-Organization/Ahlberg-for-Council-104298258075316"
+                    external
                     css={`
                       line-height: 22px;
                     `}
@@ -115,7 +116,8 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/"
+                    to="https://www.instagram.com/ahlbergforcouncil"
+                    external
                     css={`
                       line-height: 22px;
                     `}
@@ -131,7 +133,7 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="mailto: josh@ahlbergforcouncil.org"
+                    to="mailto:josh@ahlbergforcouncil.org?subject=Getting%20in%20touch"
                     css={`
                       font-size: ${(props) => props.theme.fontSize.sm};
                     `}
