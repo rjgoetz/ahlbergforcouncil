@@ -15,7 +15,7 @@ const HomeBanner = (
       query {
         desktop: file(relativePath: { eq: "josh-hero.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1920) {
+            fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
