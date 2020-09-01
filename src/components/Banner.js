@@ -31,17 +31,19 @@ const BannerText = styled.div`
 `;
 
 const Banner = ({ data, children, ...props }) => {
+  let sources = [];
+
+  if (data && data.desktop && data.mobile && data.tablet) {
+    sources = [
+      data.mobile.childImageSharp.fluid,
+      { ...data.desktop.childImageSharp.fluid, media: `(min-width: 768px)` },
+      { ...data.tablet.childImageSharp.fluid, media: `(min-width: 576px)` },
+    ];
+  }
+
   return (
     <BannerBox {...props}>
-      {data &&
-        data.desktop &&
-        data.desktop.childImageSharp &&
-        data.desktop.childImageSharp.fluid && (
-          <Img
-            fluid={data.desktop.childImageSharp.fluid}
-            alt="Josh Ahlberg"
-          ></Img>
-        )}
+      <Img fluid={sources} alt="Josh Ahlberg"></Img>
       <Container
         css={`
           height: 100%;

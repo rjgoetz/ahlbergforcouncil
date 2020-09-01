@@ -12,7 +12,21 @@ const AboutBanner = (
       query {
         desktop: file(relativePath: { eq: "ahlberg-family.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1920, quality: 100) {
+            fluid(maxWidth: 1920, quality: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        tablet: file(relativePath: { eq: "ahlberg-family-tablet.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 768, quality: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobile: file(relativePath: { eq: "ahlberg-family-mobile.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 576, quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -15,7 +15,21 @@ const HomeBanner = (
       query {
         desktop: file(relativePath: { eq: "josh-hero.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1920, quality: 100) {
+            fluid(maxWidth: 1920, quality: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        tablet: file(relativePath: { eq: "josh-hero-tablet.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 768, quality: 70) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobile: file(relativePath: { eq: "josh-hero-mobile.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 576, quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }
