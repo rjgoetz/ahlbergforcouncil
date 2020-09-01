@@ -10,32 +10,11 @@ import Link from 'Components/Link';
 import SuggestionForm from 'Components/SuggestionForm';
 import { StaticQuery, graphql } from 'gatsby';
 
-import JoshImage2x from 'Images/josh-hero@2x.jpg';
-import JoshImageMobile2x from 'Images/josh-hero-mobile@2x.jpg';
-import JoshImageTablet2x from 'Images/josh-hero-tablet@2x.jpg';
-
-// css={`
-//       background: url(${JoshImageMobile2x}) no-repeat center right;
-//       background-size: cover;
-//       @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-//         background: url(${JoshImageTablet2x}) no-repeat center center;
-//         background-size: cover;
-//       }
-//       @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-//         background: url(${JoshImage2x}) no-repeat center center;
-//         background-size: cover;
-//       }
-//       @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-//         background: url(${JoshImage2x}) no-repeat center center;
-//         background-size: contain;
-//       }
-//     `}
-
 const HomeBanner = (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(relativePath: { eq: "josh-hero@2x.jpg" }) {
+        desktop: file(relativePath: { eq: "josh-hero.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid

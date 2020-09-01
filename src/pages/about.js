@@ -5,29 +5,25 @@ import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Banner from 'Components/Banner';
 import Section from 'Components/Section';
-import FamilyImage2x from 'Images/ahlberg-family@2x.jpg';
-import FamilyImageMobile2x from 'Images/ahlberg-family-mobile@2x.jpg';
-import FamilyImageTablet2x from 'Images/ahlberg-family-tablet@2x.jpg';
+import { StaticQuery, graphql } from 'gatsby';
 
 const AboutBanner = (
-  <Banner
-    css={`
-      background: url(${FamilyImageMobile2x}) no-repeat center center;
-      background-size: cover;
-      @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-        background: url(${FamilyImageTablet2x}) no-repeat center center;
-        background-size: cover;
-      }
-      @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-        background: url(${FamilyImage2x}) no-repeat center center;
-        background-size: cover;
-      }
-      @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-        background: url(${FamilyImage2x}) no-repeat center center;
-        background-size: contain;
+  <StaticQuery
+    query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "ahlberg-family.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `}
-  ></Banner>
+    render={(data) => {
+      return <Banner data={data}></Banner>;
+    }}
+  ></StaticQuery>
 );
 
 const About = () => (

@@ -1,34 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Column } from 'Components/Grid';
+import Img from 'gatsby-image';
 
 const BannerBox = styled.div`
   height: ${(props) => props.theme.rhythm(60)};
   overflow: hidden;
   position: relative;
+  max-width: 1920px;
+  margin: auto;
   @media screen and (min-width: ${(props) => props.theme.viewPort.lg}) {
     height: ${(props) => props.theme.rhythm(70)};
   }
   @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
     height: ${(props) => props.theme.rhythm(80)};
   }
-  @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-    background-position-x: center;
-    background-size: contain;
-  }
-  img {
-    display: block;
+  & > div {
     height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    @media screen and (min-width: ${(props) => props.theme.viewPort.xxl}) {
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1600px;
-    }
   }
 `;
 
@@ -48,16 +36,18 @@ const Banner = ({ data, children, ...props }) => {
       {data &&
         data.desktop &&
         data.desktop.childImageSharp &&
-        data.desktop.childImageSharp.fluid &&
-        data.desktop.childImageSharp.fluid.src && (
-          <img
-            src={data.desktop.childImageSharp.fluid.src}
+        data.desktop.childImageSharp.fluid && (
+          <Img
+            fluid={data.desktop.childImageSharp.fluid}
             alt="Josh Ahlberg"
-          />
+          ></Img>
         )}
       <Container
         css={`
           height: 100%;
+          position: absolute;
+          top: 0;
+          width: 100%;
         `}
       >
         <Row
