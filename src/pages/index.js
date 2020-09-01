@@ -73,8 +73,7 @@ const IndexPage = () => (
               </Type>
               <Type>
                 My name is Josh Ahlberg and I want to be your voice in our city.
-                I am not running for Edina City Council because I have political
-                motivations or aspirations. I am a 40-year old husband and
+                I am not an aspiring politician. I am a 40-year-old husband and
                 father of two young children who wants to make a positive impact
                 on our community by focusing on what matters most: the desires
                 of the residents.

@@ -22,13 +22,6 @@ const Success = ({ location }) => {
         <Type el="h4">Success</Type>
         <Type el="h1">Thank you!</Type>
         {message && <Type lead>{message}</Type>}
-        <Type
-          css={`
-            margin-bottom: ${(props) => props.theme.rhythm(8)};
-          `}
-        >
-          &mdash; Ahlberg for City Council
-        </Type>
         <Type>
           <Link to="/">&lt; Back Home</Link>
         </Type>

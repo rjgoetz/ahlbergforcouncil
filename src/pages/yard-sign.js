@@ -22,9 +22,9 @@ const YardSign = () => {
                 <Type el="h4">Get a Yard Sign</Type>
                 <Type el="h1">Support our campaign.</Type>
                 <Type>
-                  Show your support by displaying the Ahlberg for Edina City
-                  Council sign in your yard today! Simply fill out the form and
-                  a campaign representative will follow up with you soon.
+                  Show your support by getting a yard sign. Simply fill out the
+                  form and a campaign representative will follow up with you
+                  soon.
                 </Type>
               </Column>
 

@@ -36,16 +36,16 @@ const Positions = () => (
             `}
           >
             Consistently, Edina surveys call for sensible, sustainable growth
-            and development, traffic abatement, housing that working families
-            and seniors can afford - while maintaining low property taxes. And
-            yet, we’re surrounded by developments being constructed at a
-            breakneck pace. This development creates traffic and infrastructure
-            needs — schools, fire stations, and deferred maintenance to existing
-            assets we can’t afford to maintain – and needs to be carefully taken
-            into consideration before action. Said differently, these
-            developmental changes come at a cost to our city -- and the
-            residents — by way of taxpayer-funded levies, quality of life, or
-            both.
+            and development, traffic abatement, and housing that working
+            families and seniors can afford - while maintaining low property
+            taxes. And yet, we’re surrounded by developments being constructed
+            at a breakneck pace. This development creates traffic and
+            infrastructure needs — schools, fire stations, and deferred
+            maintenance to existing assets we can’t afford to maintain – and
+            needs to be carefully taken into consideration before action. Said
+            differently, these developmental changes come at a cost to our city
+            -- and the residents — by way of taxpayer-funded levies, quality of
+            life, or both.
           </Type>
 
           <Type>
