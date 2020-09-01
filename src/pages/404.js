@@ -8,8 +8,9 @@ import Section from 'Components/Section';
 const NotFoundPage = () => (
   <Layout>
     <Section>
-      <Type el="h4">Error 404</Type>
       <SEO title="404: Not found" />
+
+      <Type el="h4">Error 404</Type>
       <Type el="h1">Page Not Found</Type>
       <Type
         css={`
