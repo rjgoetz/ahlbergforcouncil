@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Banner from 'Components/Banner';
 import Section from 'Components/Section';
@@ -27,9 +26,7 @@ const AboutBanner = (
 );
 
 const About = () => (
-  <Layout banner={AboutBanner}>
-    <SEO title="My Story" />
-
+  <Layout title="My Story" banner={AboutBanner}>
     <Section>
       <Row>
         <Column md={9}>

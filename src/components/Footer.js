@@ -76,7 +76,7 @@ const Footer = () => {
                   <Link to="/about/">My Story</Link>
                 </li>
                 <li>
-                  <Link to="/position/">My Position</Link>
+                  <Link to="/positions/">My Positions</Link>
                 </li>
                 <li>
                   <Link to="/donate/">Donate</Link>
@@ -103,9 +103,7 @@ const Footer = () => {
               </Type>
               <ul>
                 <li>
-                  <Link to="mailto: josh@ahlbergforcouncil.org" external>
-                    josh@ahlbergforcouncil.org
-                  </Link>
+                  <Link to="/contact">josh@ahlbergforcouncil.org</Link>
                 </li>
                 <li
                   css={`

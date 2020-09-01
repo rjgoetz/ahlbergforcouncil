@@ -1,19 +1,15 @@
 import React from 'react';
 import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Section from 'Components/Section';
-import BigNumber from 'Components/BigNumber';
 
-const Position = () => (
-  <Layout>
-    <SEO title="My Position" />
-
+const Positions = () => (
+  <Layout title="My Positions">
     <Section>
       <Row>
         <Column md={9}>
-          <Type el="h4">My Position</Type>
+          <Type el="h4">My Positions</Type>
           <Type el="h1">
             Sensible.
             <br />
@@ -98,4 +94,4 @@ const Position = () => (
   </Layout>
 );
 
-export default Position;
+export default Positions;

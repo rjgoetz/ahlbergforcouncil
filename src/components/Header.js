@@ -133,11 +133,10 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="mailto:josh@ahlbergforcouncil.org?subject=Getting%20in%20touch"
+                    to="/contact"
                     css={`
                       font-size: ${(props) => props.theme.fontSize.sm};
                     `}
-                    external
                   >
                     <Mail
                       size={22}

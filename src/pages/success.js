@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from 'Components/Layout';
 import Section from 'Components/Section';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import Link from 'Components/Link';
+import Helmet from 'react-helmet';
 
 const Success = ({ location }) => {
   let message = '';
@@ -14,13 +14,14 @@ const Success = ({ location }) => {
   }
 
   return (
-    <Layout>
-      <SEO title="Thank you"></SEO>
-
+    <Layout title="Success">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Section>
         <Type el="h4">Success</Type>
         <Type el="h1">Thank you!</Type>
-        <Type lead>{message}</Type>
+        {message && <Type lead>{message}</Type>}
         <Type
           css={`
             margin-bottom: ${(props) => props.theme.rhythm(8)};
@@ -37,7 +38,7 @@ const Success = ({ location }) => {
 };
 
 Success.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
 };
 
 export default Success;

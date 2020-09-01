@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Column } from 'Components/Grid';
 import Banner from 'Components/Banner';
 import Layout from 'Components/Layout';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
@@ -48,8 +47,6 @@ const HomeBanner = (
 
 const IndexPage = () => (
   <Layout banner={HomeBanner}>
-    <SEO title="Home" />
-
     <Section>
       <Row>
         <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>

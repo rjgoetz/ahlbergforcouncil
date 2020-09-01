@@ -47,7 +47,7 @@ const SuggestionForm = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'Suggestion',
+          'form-name': 'suggestion',
           name,
           email,
           suggestions,

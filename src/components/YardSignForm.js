@@ -86,7 +86,7 @@ const YardSignForm = () => {
       redirect={redirect}
       onSubmit={handleSubmit}
     >
-      <Type el="h3">Please complete</Type>
+      <Type el="h3">Yard sign interest.</Type>
       <Control>
         <Label htmlFor="firstName">First Name</Label>
 
@@ -110,7 +110,7 @@ const YardSignForm = () => {
       </Control>
 
       <Control>
-        <Label htmlFor="address">Complete Address</Label>
+        <Label htmlFor="address">Full Address</Label>
 
         <Input
           type="text"

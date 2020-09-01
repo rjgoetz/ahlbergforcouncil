@@ -4,7 +4,7 @@ import Button from 'Components/Button';
 import Loader from 'Components/Loader';
 import Type from 'Components/Type';
 
-const VolunteerForm = () => {
+const DonateForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [telephone, setTelephone] = useState('');
@@ -52,7 +52,7 @@ const VolunteerForm = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'volunteer',
+          'form-name': 'donate',
           firstName,
           lastName,
           telephone,
@@ -76,12 +76,12 @@ const VolunteerForm = () => {
 
   return (
     <Form
-      name="volunteer"
+      name="donate"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
     >
-      <Type el="h3">Volunteer interest.</Type>
+      <Type el="h3">Donation interest.</Type>
       <Control>
         <Label htmlFor="firstName">First Name</Label>
 
@@ -130,4 +130,4 @@ const VolunteerForm = () => {
   );
 };
 
-export default VolunteerForm;
+export default DonateForm;

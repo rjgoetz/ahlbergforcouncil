@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Form, Control, Label, Input, encode } from 'Components/Form';
+import { Form, Input, Control, Label, TextArea, encode } from 'Components/Form';
+import Type from 'Components/Type';
 import Button from 'Components/Button';
 import Loader from 'Components/Loader';
-import Type from 'Components/Type';
 
-const VolunteerForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [telephone, setTelephone] = useState('');
+const ContactForm = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -21,17 +20,14 @@ const VolunteerForm = () => {
     const value = e.target.value;
 
     switch (name) {
-      case 'firstName':
-        setFirstName(value);
-        break;
-      case 'lastName':
-        setLastName(value);
-        break;
-      case 'telephone':
-        setTelephone(value);
+      case 'name':
+        setName(value);
         break;
       case 'email':
         setEmail(value);
+        break;
+      case 'message':
+        setMessage(value);
         break;
       default:
         console.log(e.target.value);
@@ -43,20 +39,18 @@ const VolunteerForm = () => {
 
     setLoading(true);
 
-    if (!firstName || !lastName || !telephone || !email) {
+    if (!name || !email || !message) {
       setError({ isError: true, message: 'Please complete all fields.' });
       setLoading(false);
-      window.scroll(0, 0);
     } else {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'volunteer',
-          firstName,
-          lastName,
-          telephone,
+          'form-name': 'contact',
+          name,
           email,
+          message,
         }),
       })
         .then(() => {
@@ -64,7 +58,7 @@ const VolunteerForm = () => {
           setRedirect({
             fireRedirect: true,
             message:
-              'A campaign representative will be in touch with you soon.',
+              'Thank you for your email! A campaign representative will get back to you soon.',
           });
         })
         .catch((err) => {
@@ -76,43 +70,22 @@ const VolunteerForm = () => {
 
   return (
     <Form
-      name="volunteer"
+      name="contact"
       error={error}
       redirect={redirect}
       onSubmit={handleSubmit}
     >
-      <Type el="h3">Volunteer interest.</Type>
+      <Type el="h3">Send us a message.</Type>
       <Control>
-        <Label htmlFor="firstName">First Name</Label>
+        <Label htmlFor="name">Full Name</Label>
 
-        <Input
-          type="text"
-          id="firstName"
-          name="firstName"
-          onChange={handleChange}
-        />
+        <Input type="text" id="name" name="name" onChange={handleChange} />
       </Control>
 
       <Control>
-        <Label htmlFor="lastName">Last Name</Label>
+        <Label htmlFor="email">Email Address</Label>
 
-        <Input
-          type="text"
-          id="lastName"
-          name="lastName"
-          onChange={handleChange}
-        />
-      </Control>
-
-      <Control>
-        <Label htmlFor="telephone">Telephone Number</Label>
-
-        <Input
-          type="tel"
-          id="telephone"
-          name="telephone"
-          onChange={handleChange}
-        />
+        <Input type="email" id="email" name="email" onChange={handleChange} />
       </Control>
 
       <Control
@@ -120,9 +93,14 @@ const VolunteerForm = () => {
           margin-bottom: ${(props) => props.theme.rhythm()};
         `}
       >
-        <Label htmlFor="email">Email Address </Label>
-
-        <Input type="email" id="email" name="email" onChange={handleChange} />
+        <Label htmlFor="message">Your Message</Label>
+        <TextArea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          onChange={handleChange}
+        ></TextArea>
       </Control>
 
       <Button block>{loading ? <Loader width={24}></Loader> : 'Send'}</Button>
@@ -130,4 +108,4 @@ const VolunteerForm = () => {
   );
 };
 
-export default VolunteerForm;
+export default ContactForm;

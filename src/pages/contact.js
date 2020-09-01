@@ -3,11 +3,11 @@ import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
 import Section from 'Components/Section';
 import Type from 'Components/Type';
-import YardSignForm from 'Components/YardSignForm';
+import ContactForm from 'Components/ContactForm';
 
-const YardSign = () => {
+const Contact = () => {
   return (
-    <Layout title="Get a Yard Sign">
+    <Layout title="Contact">
       <Section>
         <Row>
           <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
@@ -19,12 +19,11 @@ const YardSign = () => {
                   margin-bottom: ${(props) => props.theme.rhythm()};
                 `}
               >
-                <Type el="h4">Get a Yard Sign</Type>
-                <Type el="h1">Support our campaign.</Type>
+                <Type el="h4">Contact</Type>
+                <Type el="h1">Get in touch.</Type>
                 <Type>
-                  Show your support by displaying the Ahlberg for Edina City
-                  Council sign in your yard today! Simply fill out the form and
-                  a campaign representative will follow up with you soon.
+                  Thank you for your interest in our campaign. Please complete
+                  the form to send me a message. Thank you!
                 </Type>
               </Column>
 
@@ -33,7 +32,7 @@ const YardSign = () => {
                 lg={{ column: 5, offset: 1 }}
                 xl={{ column: 5, offset: 2 }}
               >
-                <YardSignForm></YardSignForm>
+                <ContactForm></ContactForm>
               </Column>
             </Row>
           </Column>
@@ -43,4 +42,4 @@ const YardSign = () => {
   );
 };
 
-export default YardSign;
+export default Contact;

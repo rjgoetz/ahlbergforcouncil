@@ -2,15 +2,12 @@ import React from 'react';
 import { Row, Column } from 'Components/Grid';
 import Layout from 'Components/Layout';
 import Section from 'Components/Section';
-import SEO from 'Components/SEO';
 import Type from 'Components/Type';
 import VolunteerForm from 'Components/VolunteerForm';
 
 const Volunteer = () => {
   return (
-    <Layout>
-      <SEO title="Volunteer"></SEO>
-
+    <Layout title="Volunteer">
       <Section>
         <Row>
           <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>

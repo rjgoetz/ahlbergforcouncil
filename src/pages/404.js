@@ -1,15 +1,13 @@
 import React from 'react';
 import Layout from 'Components/Layout';
-import SEO from 'Components/SEO';
+import Helmet from 'react-helmet';
 import Type from 'Components/Type';
 import Link from 'Components/Link';
 import Section from 'Components/Section';
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout title="404: Page Not Found">
     <Section>
-      <SEO title="404: Not found" />
-
       <Type el="h4">Error 404</Type>
       <Type el="h1">Page Not Found</Type>
       <Type
