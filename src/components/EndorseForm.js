@@ -9,7 +9,7 @@ const EndorseForm = () => {
   const [lastName, setLastName] = useState('');
   const [telephone, setTelephone] = useState('');
   const [email, setEmail] = useState('');
-  const [emailList, setEmailList] = useState('');
+  const [emailList, setEmailList] = useState('no');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -35,7 +35,7 @@ const EndorseForm = () => {
         setEmail(value);
         break;
       case 'emailList':
-        setEmailList(value);
+        setEmailList(emailList === 'no' ? 'yes' : 'no');
         break;
       default:
         console.log(e.target.value);
@@ -68,8 +68,7 @@ const EndorseForm = () => {
           setLoading(false);
           setRedirect({
             fireRedirect: true,
-            message:
-              'A campaign representative will be in touch with you soon.',
+            message: '',
           });
         })
         .catch((err) => {
@@ -135,7 +134,7 @@ const EndorseForm = () => {
           type="checkbox"
           id="emailList"
           name="emailList"
-          value="yes, add me to email list"
+          value="yes"
           onChange={handleChange}
           css={`
             vertical-align: middle;
