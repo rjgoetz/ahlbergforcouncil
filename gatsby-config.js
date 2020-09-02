@@ -37,7 +37,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
+        trackingId: 'UA-18588494-2',
         respectDNT: false,
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
