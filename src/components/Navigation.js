@@ -52,6 +52,9 @@ const Navigation = () => {
               <li>
                 <Link to="/volunteer">Volunteer</Link>
               </li>
+              <li>
+                <Link to="/endorse">Endorse</Link>
+              </li>
             </StyledLinks>
           </Column>
         </Row>

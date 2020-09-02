@@ -14,9 +14,9 @@ const Control = styled.div`
 `;
 
 const Label = styled.label`
-  display: block;
+  display: ${(props) => (props.checkbox ? 'inline-block' : 'block')};
   font-size: ${(props) => props.theme.fontSize.sm};
-  margin-right: 20px;
+  margin-left: ${(props) => props.checkbox && '10px'};
 `;
 
 const Input = styled.input`
