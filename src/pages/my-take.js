@@ -4,12 +4,12 @@ import Layout from 'Components/Layout';
 import Type from 'Components/Type';
 import Section from 'Components/Section';
 
-const Positions = () => (
-  <Layout title="My Positions">
+const MyTake = () => (
+  <Layout title="My Take">
     <Section>
       <Row>
         <Column md={9}>
-          <Type el="h4">My Positions</Type>
+          <Type el="h4">My Take</Type>
           <Type el="h1">
             Sensible.
             <br />
@@ -26,8 +26,8 @@ const Positions = () => (
             housing in our fully developed city, a lid that was studied to
             augment the city complexion beyond repair, or completely
             redeveloping neighborhoods by way of bulldozing and reconstructing,
-            it’s the same pattern of developing without a clear and transparent
-            vision.
+            it’s the same pattern of developing without a clear understanding of
+            the long-term consequences.
           </Type>
 
           <Type
@@ -37,14 +37,14 @@ const Positions = () => (
           >
             Consistently, Edina surveys call for sensible, sustainable growth
             and development, traffic abatement, and housing that working
-            families and seniors can afford - while maintaining low property
-            taxes. And yet, we’re surrounded by developments being constructed
-            at a breakneck pace. This development creates traffic and
-            infrastructure needs — schools, fire stations, and deferred
-            maintenance to existing assets we can’t afford to maintain – and
-            needs to be carefully taken into consideration before action. Said
-            differently, these developmental changes come at a cost to our city
-            -- and the residents — by way of taxpayer-funded levies, quality of
+            families and seniors can afford &mdash; while maintaining low
+            property taxes. And yet, we’re surrounded by developments being
+            constructed at a breakneck pace. This development creates traffic
+            and infrastructure needs &mdash; schools, fire stations, and
+            deferred maintenance to existing assets we can’t afford to maintain
+            &mdash; and needs to be carefully taken into consideration before
+            action. Said differently, these developmental changes come at a cost
+            to our city &mdash; and the residents &mdash; in taxes, quality of
             life, or both.
           </Type>
 
@@ -94,4 +94,4 @@ const Positions = () => (
   </Layout>
 );
 
-export default Positions;
+export default MyTake;

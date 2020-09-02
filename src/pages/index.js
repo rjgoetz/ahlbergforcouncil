@@ -128,7 +128,7 @@ const IndexPage = () => (
                 Sensible
               </Type>
               <Type>
-                I will ask how City decisions enhance the quality of life for
+                I will ask how city decisions enhance the quality of life for
                 Edina residents.
               </Type>
             </Column>
@@ -151,7 +151,7 @@ const IndexPage = () => (
                 Open
               </Type>
               <Type>
-                I will approach Council work and resident communications with
+                I will approach council work and resident communications with
                 independence and neutrality.
               </Type>
             </Column>
@@ -174,13 +174,13 @@ const IndexPage = () => (
                 Accountable
               </Type>
               <Type>
-                I will ensure decision making includes resident engagement and
+                I will ensure decision-making includes resident engagement and
                 alignment with community needs.
               </Type>
             </Column>
           </Row>
           <Type>
-            <Link to="/positions">My Positions &gt;</Link>
+            <Link to="/my-take">My Take &gt;</Link>
           </Type>
         </Column>
       </Row>
