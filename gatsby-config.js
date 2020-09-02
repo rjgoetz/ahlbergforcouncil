@@ -5,6 +5,20 @@ module.exports = {
     author: `Joshua Ahlberg`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-18588494-2',
+        respectDNT: false,
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Enables Google Optimize using your container Id
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'auto',
+        head: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -34,19 +48,7 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-18588494-2',
-        respectDNT: false,
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Enables Google Optimize using your container Id
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'auto',
-      },
-    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

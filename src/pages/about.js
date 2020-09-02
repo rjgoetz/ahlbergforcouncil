@@ -78,8 +78,8 @@ const About = () => (
             community for my family and our residents – for years to come. Edina
             currently faces a set of challenges that require thoughtful analysis
             and action. As an Edina Council member, I will ensure the City is a
-            welcoming community that involves its residents in decision-making
-            processes.
+            welcoming community that authentically involves its residents in
+            decision-making processes.
           </Type>
 
           <Type>&mdash; Josh</Type>
