@@ -8,6 +8,7 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [emailList, setEmailList] = useState('no');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -28,6 +29,9 @@ const ContactForm = () => {
         break;
       case 'message':
         setMessage(value);
+        break;
+      case 'emailList':
+        setEmailList(emailList === 'no' ? 'yes' : 'no');
         break;
       default:
         console.log(e.target.value);
@@ -51,6 +55,7 @@ const ContactForm = () => {
           name,
           email,
           message,
+          emailList,
         }),
       })
         .then(() => {
@@ -88,11 +93,7 @@ const ContactForm = () => {
         <Input type="email" id="email" name="email" onChange={handleChange} />
       </Control>
 
-      <Control
-        css={`
-          margin-bottom: ${(props) => props.theme.rhythm()};
-        `}
-      >
+      <Control>
         <Label htmlFor="message">Your Message</Label>
         <TextArea
           name="message"
@@ -101,6 +102,26 @@ const ContactForm = () => {
           rows="10"
           onChange={handleChange}
         ></TextArea>
+      </Control>
+
+      <Control
+        css={`
+          margin-bottom: ${(props) => props.theme.rhythm()};
+        `}
+      >
+        <input
+          type="checkbox"
+          id="emailList"
+          name="emailList"
+          value="yes"
+          onChange={handleChange}
+          css={`
+            vertical-align: middle;
+          `}
+        />
+        <Label checkbox htmlFor="emailList">
+          Add me to your email list.
+        </Label>
       </Control>
 
       <Button block>{loading ? <Loader width={24}></Loader> : 'Send'}</Button>

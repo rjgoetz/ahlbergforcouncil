@@ -10,6 +10,7 @@ const YardSignForm = () => {
   const [address, setAddress] = useState('');
   const [telephone, setTelephone] = useState('');
   const [email, setEmail] = useState('');
+  const [emailList, setEmailList] = useState('no');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState({
@@ -37,6 +38,9 @@ const YardSignForm = () => {
       case 'email':
         setEmail(value);
         break;
+      case 'emailList':
+        setEmailList(emailList === 'no' ? 'yes' : 'no');
+        break;
       default:
         console.log(e.target.value);
     }
@@ -62,6 +66,7 @@ const YardSignForm = () => {
           address,
           telephone,
           email,
+          emailList,
         }),
       })
         .then(() => {
@@ -131,14 +136,30 @@ const YardSignForm = () => {
         />
       </Control>
 
+      <Control>
+        <Label htmlFor="email">Email Address </Label>
+
+        <Input type="email" id="email" name="email" onChange={handleChange} />
+      </Control>
+
       <Control
         css={`
           margin-bottom: ${(props) => props.theme.rhythm()};
         `}
       >
-        <Label htmlFor="email">Email Address </Label>
-
-        <Input type="email" id="email" name="email" onChange={handleChange} />
+        <input
+          type="checkbox"
+          id="emailList"
+          name="emailList"
+          value="yes"
+          onChange={handleChange}
+          css={`
+            vertical-align: middle;
+          `}
+        />
+        <Label checkbox htmlFor="emailList">
+          Add me to your email list.
+        </Label>
       </Control>
 
       <Button block>{loading ? <Loader width={24}></Loader> : 'Send'}</Button>
