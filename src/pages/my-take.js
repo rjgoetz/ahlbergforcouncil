@@ -60,7 +60,7 @@ const MyTake = () => (
             </li>
 
             <li>
-              What are the City’s unmet needs? How can we start discerning
+              What are the city’s unmet needs? How can we start discerning
               between wants and needs?
             </li>
 
