@@ -57,11 +57,12 @@ const About = () => (
           </Type>
 
           <Type>
-            I graduated high school in 1998, attended and graduated from the
-            University of Minnesota, and then began a career in marketing. My
-            job provided the opportunity to work with some incredibly talented
-            people and created moves to Connecticut, New York, and eventually
-            back to Minnesota, where I met my wife.
+            I graduated from Orono high school in 1998, and went on to study
+            marketing at the University of Minnesota. Upon graduating, I began a
+            career in marketing and advertising. This career path provided me
+            the opportunity to work with some incredibly talented people and
+            created moves to Connecticut, New York, and eventually back to
+            Minnesota, where I met my wife.
           </Type>
 
           <Type>

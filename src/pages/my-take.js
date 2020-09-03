@@ -60,7 +60,7 @@ const MyTake = () => (
             </li>
 
             <li>
-              What are the City’s unmet needs? How can we start discerning
+              What are the City’s unmet needs? How can we start discerning
               between wants and needs?
             </li>
 
@@ -76,14 +76,14 @@ const MyTake = () => (
           </Type>
 
           <Type>
-            I would be honored to serve as an Edina City Council member. I vow
+            I would be honored to serve as an Edina City Council member. I vow
             to create a resident-driven development process by:
           </Type>
 
           <Type el="ul" bullets>
             <li>Asking the above questions about development proposals</li>
 
-            <li>Bringing an open and honest dialog to the planning process</li>
+            <li>Bringing an open and honest dialog to the planning process</li>
 
             <li>Allowing ample time for community engagement</li>
           </Type>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Control, Label, Input, encode } from 'Components/Form';
+import { Form, Control, Label, Input, TextArea, encode } from 'Components/Form';
 import Button from 'Components/Button';
 import Loader from 'Components/Loader';
 import Type from 'Components/Type';
@@ -9,6 +9,7 @@ const EndorseForm = () => {
   const [lastName, setLastName] = useState('');
   const [telephone, setTelephone] = useState('');
   const [email, setEmail] = useState('');
+  const [endorsement, setEndorsement] = useState('');
   const [emailList, setEmailList] = useState('no');
   const [error, setError] = useState({ isError: false, message: '' });
   const [loading, setLoading] = useState(false);
@@ -34,6 +35,8 @@ const EndorseForm = () => {
       case 'email':
         setEmail(value);
         break;
+      case 'endorsement':
+        setEndorsement(value);
       case 'emailList':
         setEmailList(emailList === 'no' ? 'yes' : 'no');
         break;
@@ -47,7 +50,7 @@ const EndorseForm = () => {
 
     setLoading(true);
 
-    if (!firstName || !lastName || !telephone || !email) {
+    if (!firstName || !lastName || !telephone || !email || !endorsement) {
       setError({ isError: true, message: 'Please complete all fields.' });
       setLoading(false);
       window.scroll(0, 0);
@@ -61,6 +64,7 @@ const EndorseForm = () => {
           lastName,
           telephone,
           email,
+          endorsement,
           emailList,
         }),
       })
@@ -85,7 +89,7 @@ const EndorseForm = () => {
       redirect={redirect}
       onSubmit={handleSubmit}
     >
-      <Type el="h3">Endorse</Type>
+      <Type el="h3">Your endorsement.</Type>
       <Control>
         <Label htmlFor="firstName">First Name</Label>
 
@@ -123,6 +127,17 @@ const EndorseForm = () => {
         <Label htmlFor="email">Email Address </Label>
 
         <Input type="email" id="email" name="email" onChange={handleChange} />
+      </Control>
+
+      <Control>
+        <Label htmlFor="endorsement">Your Endorsement</Label>
+        <TextArea
+          name="endorsement"
+          id="endorsement"
+          cols="30"
+          rows="10"
+          onChange={handleChange}
+        ></TextArea>
       </Control>
 
       <Control

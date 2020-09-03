@@ -20,7 +20,7 @@ const Endorse = () => {
                 `}
               >
                 <Type el="h4">Endorse</Type>
-                <Type el="h1">Thank you for your endorsement</Type>
+                <Type el="h1">Thank you for your endorsement.</Type>
               </Column>
 
               <Column
