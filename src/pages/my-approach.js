@@ -4,12 +4,12 @@ import Layout from 'Components/Layout';
 import Type from 'Components/Type';
 import Section from 'Components/Section';
 
-const MyTake = () => (
-  <Layout title="My Take">
+const MyApproach = () => (
+  <Layout title="My Approach">
     <Section>
       <Row>
         <Column md={9}>
-          <Type el="h4">My Take</Type>
+          <Type el="h4">My Approach</Type>
           <Type el="h1">
             Sensible.
             <br />
@@ -94,4 +94,4 @@ const MyTake = () => (
   </Layout>
 );
 
-export default MyTake;
+export default MyApproach;

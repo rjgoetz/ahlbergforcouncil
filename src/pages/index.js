@@ -180,7 +180,7 @@ const IndexPage = () => (
             </Column>
           </Row>
           <Type>
-            <Link to="/my-take">My Take &gt;</Link>
+            <Link to="/my-approach">My Approach &gt;</Link>
           </Type>
         </Column>
       </Row>
