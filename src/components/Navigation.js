@@ -29,11 +29,6 @@ const StyledLinks = styled.ul`
         text-decoration: none;
       }
     }
-    &:last-of-type {
-      a {
-        margin-right: 0;
-      }
-    }
   }
   @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
     li {
