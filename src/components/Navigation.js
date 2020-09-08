@@ -5,6 +5,9 @@ import { Container, Row, Column } from 'Components/Grid';
 
 const StyledNav = styled.nav`
   background: ${(props) => props.theme.colors.primary};
+  height: ${(props) => props.theme.rhythm(6)};
+  overflow-x: auto;
+  white-space: nowrap;
 `;
 
 const StyledLinks = styled.ul`
@@ -26,7 +29,11 @@ const StyledLinks = styled.ul`
         text-decoration: none;
       }
     }
-&:last-of-type { a {margin-right: 0; }}
+    &:last-of-type {
+      a {
+        margin-right: 0;
+      }
+    }
   }
   @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
     li {
