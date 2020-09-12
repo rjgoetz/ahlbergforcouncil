@@ -10,7 +10,10 @@ import Receipt from 'Components/Receipt';
 import { PayPalButton } from 'react-paypal-button-v2';
 import Loader from 'Components/Loader';
 
-const clientId = process.env.GATSBY_CLIENT_ID;
+const clientId =
+  process.env.NODE_ENV === 'development'
+    ? process.env.GATSBY_CLIENT_ID_DEV
+    : process.env.GATSBY_CLIENT_ID_PROD;
 
 const StyledDiv = styled.div`
   background: ${(props) => props.theme.colors.ltGrey};
