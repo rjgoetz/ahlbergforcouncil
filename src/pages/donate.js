@@ -120,6 +120,7 @@ const Donate = () => {
                               });
                             }}
                             options={{ clientId }}
+                            target="_blank"
                           ></PayPalButton>
                         </>
                       )}

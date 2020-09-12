@@ -4,7 +4,6 @@ import Type from 'Components/Type';
 import ErrorBox from 'Components/ErrorBox';
 import Loader from 'Components/Loader';
 import { Input, Control, Label, encode } from 'Components/Form';
-import Button from 'Components/Button';
 
 const ReceiptForm = ({ details, occupation }) => {
   const [loading, setLoading] = useState(true);
@@ -55,22 +54,18 @@ const ReceiptForm = ({ details, occupation }) => {
       });
   }
 
-  const formRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
-    const button = document.getElementById('receipt-button');
-
-    formRef.current.requestSubmit(button);
+    buttonRef.current.click();
   }, []);
 
   return (
     <form
-      ref={formRef}
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       name="donation-receipt"
-      onSubmit={handleSubmit}
     >
       <Type
         el="h2"
@@ -153,15 +148,15 @@ const ReceiptForm = ({ details, occupation }) => {
         ></Input>
       </Control>
 
-      <Button
-        id="receipt-button"
-        block
+      <button
+        ref={buttonRef}
+        onClick={handleSubmit}
         css={`
           display: none;
         `}
       >
         Send &gt;
-      </Button>
+      </button>
     </form>
   );
 };
