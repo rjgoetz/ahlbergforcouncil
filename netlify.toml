@@ -1,5 +1,2 @@
-[context.paypal]
-  NODE_ENV = "development"
-
-[context.staging]
+[context.branch-deploy.environment]
   NODE_ENV = "development"
