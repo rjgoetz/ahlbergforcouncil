@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Type from 'Components/Type';
 import ErrorBox from 'Components/ErrorBox';
@@ -36,12 +36,16 @@ const ReceiptForm = ({ details, occupation }) => {
       });
   }
 
+  const formRef = useRef(null);
+
   useEffect(() => {
-    document.getElementById('receipt-btn').click();
+    const button = document.getElementById('receipt-button');
+    formRef.current.requestSubmit(button);
   });
 
   return (
     <form
+      ref={formRef}
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
@@ -136,7 +140,7 @@ const ReceiptForm = ({ details, occupation }) => {
       </Control>
 
       <Button
-        id="receipt-btn"
+        id="receipt-button"
         block
         css={`
           display: none;

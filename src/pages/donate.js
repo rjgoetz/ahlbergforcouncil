@@ -36,7 +36,7 @@ const Donate = () => {
     if (!occupation || !amount) {
       setError('Please complete all fields.');
     } else if (amount < 5 || amount > 1200) {
-      setError('Amount must be greater than $5 and less than $1200.');
+      setError('Amount must be greater than $5 and no more than $1200.');
     } else {
       setError('');
       setPaymentReady(true);
