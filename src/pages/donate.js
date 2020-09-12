@@ -5,7 +5,7 @@ import { Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
 import Section from 'Components/Section';
 import DonationAmount from 'Components/DonationAmount';
-import ReceiptForm from 'Components/ReceiptForm';
+import { navigate } from 'gatsby';
 
 import { PayPalButton } from 'react-paypal-button-v2';
 import Loader from 'Components/Loader';
@@ -77,10 +77,9 @@ const Donate = () => {
               >
                 <StyledDiv>
                   {success.success ? (
-                    <ReceiptForm
-                      details={success.details}
-                      occupation={occupation}
-                    ></ReceiptForm>
+                    navigate('/donate/success', {
+                      state: { details: success.details, occupation },
+                    })
                   ) : (
                     <>
                       {!paymentReady && (

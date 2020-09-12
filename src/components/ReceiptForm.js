@@ -9,9 +9,11 @@ import Button from 'Components/Button';
 const ReceiptForm = ({ details, occupation }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [submitted, setSubmitted] = useState(false);
   const { payer, update_time, id, purchase_units } = details;
 
   function handleSubmit(e) {
+    console.log('submitted donation receipt');
     e.preventDefault();
 
     fetch('/', {
@@ -29,6 +31,7 @@ const ReceiptForm = ({ details, occupation }) => {
     })
       .then(() => {
         setLoading(false);
+        setSubmitted(true);
       })
       .catch((err) => {
         setLoading(false);
@@ -40,7 +43,10 @@ const ReceiptForm = ({ details, occupation }) => {
 
   useEffect(() => {
     const button = document.getElementById('receipt-button');
-    formRef.current.requestSubmit(button);
+
+    if (!submitted) {
+      formRef.current.requestSubmit(button);
+    }
   });
 
   return (
