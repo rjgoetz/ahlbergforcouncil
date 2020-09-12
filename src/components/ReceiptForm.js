@@ -9,14 +9,12 @@ import Button from 'Components/Button';
 const ReceiptForm = ({ details, occupation }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
-  let firstName = '';
-  let lastName = '';
-  let time = '';
-  let amount = '';
-  let id = '';
+  let date = '';
+  let fullName = '';
   let email = '';
+  let amount = '';
+  let transactionId = '';
 
   if (
     details.payer &&
@@ -24,12 +22,11 @@ const ReceiptForm = ({ details, occupation }) => {
     details.id &&
     details.purchase_units
   ) {
-    firstName = details.payer.name.given_name;
-    lastName = details.payer.name.surname;
+    date = new Date(details.update_time).toLocaleDateString();
+    fullName = `${details.payer.name.given_name} ${details.payer.name.surname}`;
     email = details.payer.email_address;
-    time = new Date(details.update_time).toLocaleDateString();
-    id = details.id;
     amount = details.purchase_units[0].amount.value;
+    transactionId = details.id;
   }
 
   function handleSubmit(e) {
@@ -51,7 +48,6 @@ const ReceiptForm = ({ details, occupation }) => {
     })
       .then(() => {
         setLoading(false);
-        setSubmitted(true);
       })
       .catch((err) => {
         setLoading(false);
@@ -64,10 +60,8 @@ const ReceiptForm = ({ details, occupation }) => {
   useEffect(() => {
     const button = document.getElementById('receipt-button');
 
-    if (!submitted) {
-      formRef.current.requestSubmit(button);
-    }
-  });
+    formRef.current.requestSubmit(button);
+  }, []);
 
   return (
     <form
@@ -101,7 +95,7 @@ const ReceiptForm = ({ details, occupation }) => {
 
       <Control>
         <Label htmlFor="date">Date</Label>
-        <Input type="text" id="date" name="date" readOnly value={time}></Input>
+        <Input type="text" id="date" name="date" readOnly value={date}></Input>
       </Control>
 
       <Control>
@@ -111,7 +105,7 @@ const ReceiptForm = ({ details, occupation }) => {
           id="fullName"
           name="fullName"
           readOnly
-          value={`${firstName} ${lastName}`}
+          value={fullName}
         ></Input>
       </Control>
 
@@ -155,7 +149,7 @@ const ReceiptForm = ({ details, occupation }) => {
           id="transactionId"
           name="transactionId"
           readOnly
-          value={id}
+          value={transactionId}
         ></Input>
       </Control>
 
