@@ -10,7 +10,27 @@ const ReceiptForm = ({ details, occupation }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const { payer, update_time, id, purchase_units } = details;
+
+  let firstName = '';
+  let lastName = '';
+  let time = '';
+  let amount = '';
+  let id = '';
+  let email = '';
+
+  if (
+    details.payer &&
+    details.update_time &&
+    details.id &&
+    details.purchase_units
+  ) {
+    firstName = details.payer.name.given_name;
+    lastName = details.payer.name.surname;
+    email = details.payer.email_address;
+    time = new Date(details.update_time).toLocaleDateString();
+    id = details.id;
+    amount = details.purchase_units[0].amount.value;
+  }
 
   function handleSubmit(e) {
     console.log('submitted donation receipt');
@@ -81,13 +101,7 @@ const ReceiptForm = ({ details, occupation }) => {
 
       <Control>
         <Label htmlFor="date">Date</Label>
-        <Input
-          type="text"
-          id="date"
-          name="date"
-          readOnly
-          value={new Date(update_time).toLocaleDateString()}
-        ></Input>
+        <Input type="text" id="date" name="date" readOnly value={time}></Input>
       </Control>
 
       <Control>
@@ -97,7 +111,7 @@ const ReceiptForm = ({ details, occupation }) => {
           id="fullName"
           name="fullName"
           readOnly
-          value={`${payer.name.given_name} ${payer.name.surname}`}
+          value={`${firstName} ${lastName}`}
         ></Input>
       </Control>
 
@@ -119,7 +133,7 @@ const ReceiptForm = ({ details, occupation }) => {
           id="email"
           name="email"
           readOnly
-          value={payer.email_address}
+          value={email}
         ></Input>
       </Control>
 
@@ -130,7 +144,7 @@ const ReceiptForm = ({ details, occupation }) => {
           id="amount"
           name="amount"
           readOnly
-          value={`$${purchase_units[0].amount.value}`}
+          value={amount}
         ></Input>
       </Control>
 

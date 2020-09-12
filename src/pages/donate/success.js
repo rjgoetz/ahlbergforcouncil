@@ -42,14 +42,10 @@ const DonateSuccess = ({ location }) => {
                 xl={{ column: 5, offset: 2 }}
               >
                 <StyledDiv>
-                  {location.state &&
-                    location.state.details &&
-                    location.state.occupation && (
-                      <ReceiptForm
-                        details={details}
-                        occupation={occupation}
-                      ></ReceiptForm>
-                    )}
+                  <ReceiptForm
+                    details={details}
+                    occupation={occupation}
+                  ></ReceiptForm>
                 </StyledDiv>
               </Column>
             </Row>
