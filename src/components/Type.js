@@ -20,27 +20,16 @@ const P = styled.p`
 `;
 
 const H1 = styled.h1`
-<<<<<<< HEAD
-  color: ${(props) => props.theme.colors.primary};
-
-=======
   color: ${(props) =>
     props.banner ? props.theme.colors.white : props.theme.colors.black};
->>>>>>> staging
   font-size: ${(props) =>
-    props.banner ? props.theme.fontSize.xl : props.theme.fontSize.xl};
+    props.banner ? props.theme.fontSize.xxl : props.theme.fontSize.xl};
   font-weight: ${(props) => props.theme.fontWeight.medium};
   line-height: ${(props) => props.theme.rhythm(8)};
   margin: 0 0
     ${(props) => (props.banner ? props.theme.rhythm(8) : props.theme.rhythm())};
-<<<<<<< HEAD
-  text-align: ${(props) => (props.banner ? 'left' : 'center')};
-
-  ${(props) => props.custom && customText}
-=======
 
   ${(props) => props.custom && customText};
->>>>>>> staging
 `;
 
 const H2 = styled.h2`

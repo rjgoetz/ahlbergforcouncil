@@ -13,7 +13,7 @@ import Loader from 'Components/Loader';
 const clientId =
   process.env.NODE_ENV === 'development'
     ? process.env.GATSBY_CLIENT_ID_DEV
-    : process.env.GATSBY_CLIENT_ID_PROD;
+    : process.env.GATSBY_CLIENT_ID;
 
 const StyledDiv = styled.div`
   background: ${(props) => props.theme.colors.ltGrey};
@@ -27,10 +27,18 @@ const StyledHr = styled.hr`
 const Donate = () => {
   const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState(0);
+  const [occupation, setOccupation] = useState(0);
   const [success, setSuccess] = useState({ success: false, details: {} });
 
   const handleChange = (e) => {
-    setAmount(e.target.value);
+    switch (e.target.name) {
+      case 'amount':
+        setAmount(e.target.value);
+        break;
+      case 'occupation':
+        setOccupation(e.target.value);
+        break;
+    }
   };
 
   return (

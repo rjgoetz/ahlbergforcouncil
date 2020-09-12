@@ -48,6 +48,31 @@ const DonationAmount = ({ handleChange }) => {
           />
         </div>
       </Control>
+
+      <Control>
+        <Label
+          htmlFor="occupation"
+          aria-label="Occupation"
+          css={`
+            display: none;
+          `}
+        ></Label>
+        <Input
+          type="text"
+          id="occupation"
+          name="occupation"
+          placeholder="Your Occupation"
+          css={`
+            height: ${(props) => props.theme.rhythm(6)};
+          `}
+          onChange={handleChange}
+        ></Input>
+      </Control>
+
+      <Type size="sm">
+        Campaign finance rules require us to capture your occupation. Donations
+        cannot exceed $600 per person or $1200 per couple.
+      </Type>
     </>
   );
 };
