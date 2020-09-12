@@ -5,7 +5,7 @@ import { Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
 import Section from 'Components/Section';
 import DonationAmount from 'Components/DonationAmount';
-import Receipt from 'Components/Receipt';
+import ReceiptForm from 'Components/ReceiptForm';
 
 import { PayPalButton } from 'react-paypal-button-v2';
 import Loader from 'Components/Loader';
@@ -25,15 +25,28 @@ const StyledHr = styled.hr`
 `;
 
 const Donate = () => {
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState(0);
-  const [occupation, setOccupation] = useState(0);
+  const [occupation, setOccupation] = useState('');
+  const [paymentReady, setPaymentReady] = useState(false);
   const [success, setSuccess] = useState({ success: false, details: {} });
+
+  const paymentButtonClick = () => {
+    if (!occupation || !amount) {
+      setError('Please complete all fields.');
+    } else if (amount < 5 || amount > 1200) {
+      setError('Amount must be greater than $5 and less than $1200.');
+    } else {
+      setError('');
+      setPaymentReady(true);
+    }
+  };
 
   const handleChange = (e) => {
     switch (e.target.name) {
       case 'amount':
-        setAmount(e.target.value);
+        setAmount(parseInt(e.target.value));
         break;
       case 'occupation':
         setOccupation(e.target.value);
@@ -64,37 +77,53 @@ const Donate = () => {
               >
                 <StyledDiv>
                   {success.success ? (
-                    <Receipt details={success.details}></Receipt>
+                    <ReceiptForm
+                      details={success.details}
+                      occupation={occupation}
+                    ></ReceiptForm>
                   ) : (
                     <>
-                      <DonationAmount
-                        handleChange={handleChange}
-                      ></DonationAmount>
-                      <StyledHr></StyledHr>
-
-                      {loading && (
-                        <div
-                          css={`
-                            display: flex;
-                            justify-content: center;
-                          `}
-                        >
-                          <Loader size="48"></Loader>
-                        </div>
+                      {!paymentReady && (
+                        <DonationAmount
+                          handleChange={handleChange}
+                          paymentButtonClick={paymentButtonClick}
+                          error={error}
+                        ></DonationAmount>
                       )}
-                      <PayPalButton
-                        amount={amount}
-                        onButtonReady={() => {
-                          return setLoading(false);
-                        }}
-                        onSuccess={(details) => {
-                          setSuccess({
-                            success: true,
-                            details,
-                          });
-                        }}
-                        options={{ clientId }}
-                      ></PayPalButton>
+
+                      {paymentReady && (
+                        <>
+                          <Type el="h2">Your Payment</Type>
+                          <StyledHr></StyledHr>
+
+                          {loading && (
+                            <div
+                              css={`
+                                display: flex;
+                                margin-bottom: ${(props) =>
+                                  props.theme.rhythm()};
+                                justify-content: center;
+                              `}
+                            >
+                              <Loader size="48"></Loader>
+                            </div>
+                          )}
+
+                          <PayPalButton
+                            amount={amount}
+                            onButtonReady={() => {
+                              return setLoading(false);
+                            }}
+                            onSuccess={(details) => {
+                              setSuccess({
+                                success: true,
+                                details,
+                              });
+                            }}
+                            options={{ clientId }}
+                          ></PayPalButton>
+                        </>
+                      )}
                     </>
                   )}
                 </StyledDiv>

@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import { DollarSign } from '@styled-icons/feather';
 import { Control, Input, Label } from 'Components/Form';
 import Type from 'Components/Type';
+import Button from 'Components/Button';
+import ErrorBox from 'Components/ErrorBox';
 
-const DonationAmount = ({ handleChange }) => {
+const DonationAmount = ({ handleChange, paymentButtonClick, error }) => {
   return (
     <>
-      <Type el="h2">Your Donation</Type>
+      <Type el="h2">Please complete</Type>
+
+      {error && <ErrorBox>{error}</ErrorBox>}
+
       <Control>
         <Label
           htmlFor="amount"
@@ -73,12 +78,18 @@ const DonationAmount = ({ handleChange }) => {
         Campaign finance rules require us to capture your occupation. Donations
         cannot exceed $600 per person or $1200 per couple.
       </Type>
+
+      <Button block onClick={paymentButtonClick}>
+        Payment &gt;
+      </Button>
     </>
   );
 };
 
 DonationAmount.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  paymentButtonClick: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 export default DonationAmount;
