@@ -4,29 +4,21 @@ import Type from 'Components/Type';
 import ErrorBox from 'Components/ErrorBox';
 import Loader from 'Components/Loader';
 import { Input, Control, Label, encode } from 'Components/Form';
+import { navigate } from 'gatsby';
 
-const ReceiptForm = ({ details, occupation }) => {
+const ReceiptForm = ({ user }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
-  let date = '';
-  let fullName = '';
-  let email = '';
-  let amount = '';
-  let transactionId = '';
-
-  if (
-    details.payer &&
-    details.update_time &&
-    details.id &&
-    details.purchase_units
-  ) {
-    date = new Date(details.update_time).toLocaleDateString();
-    fullName = `${details.payer.name.given_name} ${details.payer.name.surname}`;
-    email = details.payer.email_address;
-    amount = details.purchase_units[0].amount.value;
-    transactionId = details.id;
-  }
+  const {
+    firstName,
+    lastName,
+    email,
+    occupation,
+    amount,
+    date,
+    transactionId,
+  } = user;
+  const fullName = `${firstName || ''} ${lastName || ''}`;
 
   function handleSubmit(e) {
     console.log('submitted donation receipt');
@@ -47,6 +39,7 @@ const ReceiptForm = ({ details, occupation }) => {
     })
       .then(() => {
         setLoading(false);
+        navigate('/donate/receipt', { state: { user } });
       })
       .catch((err) => {
         setLoading(false);
@@ -73,20 +66,10 @@ const ReceiptForm = ({ details, occupation }) => {
           margin-bottom: ${(props) => props.theme.rhythm()};
         `}
       >
-        Thank you for your support! {loading && <Loader size="24"></Loader>}
+        Processing Payment {loading && <Loader size="24"></Loader>}
       </Type>
 
       {error && <ErrorBox>{error}</ErrorBox>}
-
-      <Type
-        el="h3"
-        css={`
-          margin-bottom: ${(props) => props.theme.rhythm()};
-        `}
-      >
-        Your Receipt
-      </Type>
-      <Type>Please print for your records.</Type>
 
       <Control>
         <Label htmlFor="date">Date</Label>
@@ -162,8 +145,7 @@ const ReceiptForm = ({ details, occupation }) => {
 };
 
 ReceiptForm.propTypes = {
-  details: PropTypes.object.isRequired,
-  occupation: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default ReceiptForm;

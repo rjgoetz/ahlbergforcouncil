@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Layout from 'Components/Layout';
-import { Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
-import Section from 'Components/Section';
+import DonatePage from 'Components/DonatePage';
 import DonationAmount from 'Components/DonationAmount';
 import { navigate } from 'gatsby';
 
@@ -15,11 +13,6 @@ const clientId =
     ? process.env.GATSBY_CLIENT_ID_DEV
     : process.env.GATSBY_CLIENT_ID;
 
-const StyledDiv = styled.div`
-  background: ${(props) => props.theme.colors.ltGrey};
-  padding: ${(props) => props.theme.rhythm()} 20px;
-`;
-
 const StyledHr = styled.hr`
   margin: ${(props) => props.theme.rhythm()} 0;
 `;
@@ -30,7 +23,8 @@ const Donate = () => {
   const [amount, setAmount] = useState(0);
   const [occupation, setOccupation] = useState('');
   const [paymentReady, setPaymentReady] = useState(false);
-  const [success, setSuccess] = useState({ success: false, details: {} });
+  const [redirect, setRedirect] = useState(false);
+  const [user, setUser] = useState({});
 
   const paymentButtonClick = () => {
     if (!occupation || !amount) {
@@ -54,85 +48,70 @@ const Donate = () => {
     }
   };
 
+  const submitPayment = (details) => {
+    const { payer, update_time, id } = details;
+    const user = {
+      firstName: payer.name.given_name,
+      lastName: payer.name.surname,
+      email: payer.email_address,
+      transactionId: id,
+      date: new Date(update_time).toLocaleDateString(),
+      occupation,
+      amount,
+    };
+
+    setUser(user);
+    setRedirect(true);
+  };
+
   return (
-    <Layout title="Donate">
-      <Section>
-        <Row>
-          <Column sm={{ column: 10, offset: 1 }} md={{ column: 12, offset: 0 }}>
-            <Row>
-              <Column
-                md={6}
-                lg={5}
-                css={`
-                  margin-bottom: ${(props) => props.theme.rhythm()};
-                `}
-              >
-                <Type el="h4">Donate</Type>
-                <Type el="h1">Thank you for donating.</Type>
-              </Column>
-              <Column
-                md={6}
-                lg={{ column: 5, offset: 1 }}
-                xl={{ column: 5, offset: 2 }}
-              >
-                <StyledDiv>
-                  {success.success ? (
-                    navigate('/donate/success', {
-                      state: { details: success.details, occupation },
-                    })
-                  ) : (
-                    <>
-                      {!paymentReady && (
-                        <DonationAmount
-                          handleChange={handleChange}
-                          paymentButtonClick={paymentButtonClick}
-                          error={error}
-                        ></DonationAmount>
-                      )}
+    <DonatePage>
+      {redirect ? (
+        navigate('/donate/success', {
+          state: { user },
+        })
+      ) : (
+        <>
+          {!paymentReady && (
+            <DonationAmount
+              handleChange={handleChange}
+              paymentButtonClick={paymentButtonClick}
+              error={error}
+            ></DonationAmount>
+          )}
 
-                      {paymentReady && (
-                        <>
-                          <Type el="h2">Your Payment</Type>
-                          <StyledHr></StyledHr>
+          {paymentReady && (
+            <>
+              <Type el="h2">Your Payment</Type>
+              <StyledHr></StyledHr>
 
-                          {loading && (
-                            <div
-                              css={`
-                                display: flex;
-                                margin-bottom: ${(props) =>
-                                  props.theme.rhythm()};
-                                justify-content: center;
-                              `}
-                            >
-                              <Loader size="48"></Loader>
-                            </div>
-                          )}
+              {loading && (
+                <div
+                  css={`
+                    display: flex;
+                    margin-bottom: ${(props) => props.theme.rhythm()};
+                    justify-content: center;
+                  `}
+                >
+                  <Loader size="48"></Loader>
+                </div>
+              )}
 
-                          <PayPalButton
-                            amount={amount}
-                            onButtonReady={() => {
-                              return setLoading(false);
-                            }}
-                            onSuccess={(details) => {
-                              setSuccess({
-                                success: true,
-                                details,
-                              });
-                            }}
-                            options={{ clientId }}
-                            target="_blank"
-                          ></PayPalButton>
-                        </>
-                      )}
-                    </>
-                  )}
-                </StyledDiv>
-              </Column>
-            </Row>
-          </Column>
-        </Row>
-      </Section>
-    </Layout>
+              <PayPalButton
+                amount={amount}
+                onButtonReady={() => {
+                  return setLoading(false);
+                }}
+                onSuccess={(details) => {
+                  submitPayment(details);
+                }}
+                options={{ clientId }}
+              ></PayPalButton>
+            </>
+          )}
+        </>
+      )}
+    </DonatePage>
   );
 };
 
