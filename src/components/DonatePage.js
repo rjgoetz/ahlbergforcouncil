@@ -44,7 +44,7 @@ const DonatePage = ({ children }) => {
                     margin-bottom: 0;
                   `}
                 >
-                  Contribution Rules:
+                  Contribution rules:
                 </Type>
                 <Type el="ol" size="sm">
                   <li>
@@ -64,13 +64,22 @@ const DonatePage = ({ children }) => {
                     card issued to another person.
                   </li>
                 </Type>
+                <Type
+                  size="sm"
+                  weight="bold"
+                  css={`
+                    margin-bottom: 0;
+                  `}
+                >
+                  If you prefer to send us a check:
+                </Type>
                 <Type size="sm">
-                  If you prefer to send us a check, please make checks payable
-                  to "Ahlberg For Council" and mail to: 6825 Valley View Rd.
-                  Edina, MN 55439. Federal law requires us to use our best
-                  efforts to collect and report the name, mailing address,
-                  occupation, and name of employer of individuals whose
-                  contributions exceed $200 in an election cycle.
+                  Please make checks payable to "Ahlberg For Council" and mail
+                  to: 6825 Valley View Rd. Edina, MN 55439. Federal law requires
+                  us to use our best efforts to collect and report the name,
+                  mailing address, occupation, and name of employer of
+                  individuals whose contributions exceed $200 in an election
+                  cycle.
                 </Type>
               </Column>
               <Column
