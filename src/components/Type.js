@@ -71,6 +71,13 @@ const List = styled.ul`
   ${(props) => props.custom && customText};
 `;
 
+const OrderedList = styled.ol`
+  margin: 0 20px ${(props) => props.theme.rhythm(2)};
+  padding: ${(props) => (props.bullets ? '0 20px' : '0')};
+
+  ${(props) => props.custom && customText};
+`;
+
 const Blockquote = styled.blockquote`
   color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fontSize.lg};
@@ -99,6 +106,9 @@ const Type = ({ el, children, ...props }) => {
       break;
     case 'ul':
       Typography = List;
+      break;
+    case 'ol':
+      Typography = OrderedList;
       break;
     case 'blockquote':
       Typography = Blockquote;
