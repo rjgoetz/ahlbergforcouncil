@@ -21,6 +21,10 @@ body {
   line-height: ${(props) => props.theme.lineHeight};
   -webkit-font-smoothing: antialiased;
 }   
+
+::placeholder {
+  color: #9e9e9e;
+}
 `;
 
 export default GlobalStyle;
