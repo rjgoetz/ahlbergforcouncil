@@ -13,21 +13,21 @@ const HomeBanner = (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(relativePath: { eq: "josh-hero.jpg" }) {
+        desktop: file(relativePath: { eq: "ahlberg-family.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1920, quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        tablet: file(relativePath: { eq: "josh-hero-tablet.jpg" }) {
+        tablet: file(relativePath: { eq: "ahlberg-family-tablet.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 768, quality: 70) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        mobile: file(relativePath: { eq: "josh-hero-mobile.jpg" }) {
+        mobile: file(relativePath: { eq: "ahlberg-family-mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 576, quality: 70) {
               ...GatsbyImageSharpFluid
@@ -37,24 +37,7 @@ const HomeBanner = (
       }
     `}
     render={(data) => {
-      return (
-        <Banner data={data}>
-          <Type
-            el="h1"
-            css={`
-              color: white;
-              margin-bottom: 0px;
-              text-shadow: 2px 2px 4px ${(props) => props.theme.colors.black};
-            `}
-          >
-            Sensible.
-            <br />
-            Open.
-            <br />
-            Accountable.
-          </Type>
-        </Banner>
-      );
+      return <Banner data={data}></Banner>;
     }}
   ></StaticQuery>
 );
