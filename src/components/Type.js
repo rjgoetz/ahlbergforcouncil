@@ -142,7 +142,7 @@ Type.defaultProps = {
 };
 
 Type.propTypes = {
-  el: oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'ul', 'blockquote']).isRequired,
+  el: oneOf(['p', 'h1', 'h2', 'h3', 'h4', 'ul', 'ol', 'blockquote']).isRequired,
 
   /* The following are properties unique to certain elements. */
 
