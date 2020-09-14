@@ -75,8 +75,8 @@ const DonatePage = ({ children }) => {
                 </Type>
                 <Type size="sm">
                   Please make checks payable to "Ahlberg For Council" and mail
-                  to: 6825 Valley View Rd. Edina, MN 55439. Federal law requires
-                  us to use our best efforts to collect and report the name,
+                  to: 6121 Beard Ave S. Edina, MN 55410. Federal law requires us
+                  to use our best efforts to collect and report the name,
                   mailing address, occupation, and name of employer of
                   individuals whose contributions exceed $200 in an election
                   cycle.

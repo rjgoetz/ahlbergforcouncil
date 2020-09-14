@@ -12,6 +12,8 @@ const ReceiptForm = ({ user }) => {
   const {
     firstName,
     lastName,
+    spouseName,
+    spouseOccupation,
     email,
     occupation,
     amount,
@@ -32,6 +34,8 @@ const ReceiptForm = ({ user }) => {
         date,
         fullName,
         occupation,
+        spouseName,
+        spouseOccupation,
         email,
         amount,
         transactionId,
@@ -95,6 +99,28 @@ const ReceiptForm = ({ user }) => {
           name="occupation"
           readOnly
           value={occupation}
+        ></Input>
+      </Control>
+
+      <Control>
+        <Label htmlFor="spouseName">Spouse Name</Label>
+        <Input
+          type="text"
+          id="spouseName"
+          name="spouseName"
+          readOnly
+          value={spouseName}
+        ></Input>
+      </Control>
+
+      <Control>
+        <Label htmlFor="spouseOccupation">Spouse Occupation</Label>
+        <Input
+          type="text"
+          id="spouseOccupation"
+          name="spouseOccupation"
+          readOnly
+          value={spouseOccupation}
         ></Input>
       </Control>
 

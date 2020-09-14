@@ -22,12 +22,19 @@ const Donate = () => {
   const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState(0);
   const [occupation, setOccupation] = useState('');
+  const [isSingle, setIsSingle] = useState(true);
+  const [spouseName, setSpouseName] = useState('');
+  const [spouseOccupation, setSpouseOccupation] = useState('');
   const [paymentReady, setPaymentReady] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [user, setUser] = useState({});
 
   const paymentButtonClick = () => {
-    if (!occupation || !amount) {
+    if (
+      isSingle
+        ? !occupation || !amount
+        : !occupation || !amount || !spouseName || !spouseOccupation
+    ) {
       setError('Please complete all fields.');
     } else if (amount < 5 || amount > 1200) {
       setError('Amount must be greater than $5 and no more than $1200.');
@@ -45,6 +52,12 @@ const Donate = () => {
       case 'occupation':
         setOccupation(e.target.value);
         break;
+      case 'spouseName':
+        setSpouseName(e.target.value);
+        break;
+      case 'spouseOccupation':
+        setSpouseOccupation(e.target.value);
+        break;
     }
   };
 
@@ -53,6 +66,8 @@ const Donate = () => {
     const user = {
       firstName: payer.name.given_name,
       lastName: payer.name.surname,
+      spouseName,
+      spouseOccupation,
       email: payer.email_address,
       transactionId: id,
       date: new Date(update_time).toLocaleDateString(),
@@ -74,6 +89,8 @@ const Donate = () => {
         <>
           {!paymentReady && (
             <DonationAmount
+              isSingle={isSingle}
+              setIsSingle={setIsSingle}
               handleChange={handleChange}
               paymentButtonClick={paymentButtonClick}
               error={error}
