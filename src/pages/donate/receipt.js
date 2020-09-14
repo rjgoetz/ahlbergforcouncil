@@ -13,6 +13,8 @@ const DonateReceipt = ({ location }) => {
       <Type>First Name: {user.firstName}</Type>
       <Type>Last Name: {user.lastName}</Type>
       <Type>Occupation: {user.occupation}</Type>
+      <Type>Spouse Name: {user.spouseName}</Type>
+      <Type>Spouse Occupation: {user.spouseOccupation}</Type>
       <Type>Email: {user.email}</Type>
       <Type>Transaction ID: {user.transactionId}</Type>
     </DonatePage>
