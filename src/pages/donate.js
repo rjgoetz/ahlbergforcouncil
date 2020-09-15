@@ -36,8 +36,14 @@ const Donate = () => {
         : !occupation || !amount || !spouseName || !spouseOccupation
     ) {
       setError('Please complete all fields.');
-    } else if (amount < 5 || amount > 1200) {
-      setError('Amount must be greater than $5 and no more than $1200.');
+    } else if (
+      isSingle ? amount < 5 || amount > 600 : amount < 5 || amount > 1200
+    ) {
+      setError(
+        isSingle
+          ? 'Single donor amount must be greater than $5 and no more than $600.'
+          : 'Couple donor amount must be greater than $5 and no more than $1200.'
+      );
     } else {
       setError('');
       setPaymentReady(true);
@@ -62,6 +68,7 @@ const Donate = () => {
   };
 
   const submitPayment = (details) => {
+    console.log(details);
     const { payer, update_time, id } = details;
     const user = {
       firstName: payer.name.given_name,

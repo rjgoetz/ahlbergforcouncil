@@ -1,12 +1,16 @@
 import React from 'react';
 import DonatePage from 'Components/DonatePage';
 import Type from 'Components/Type';
+import { Helmet } from 'react-helmet';
 
 const DonateReceipt = ({ location }) => {
   const user = (location.state && location.state.user) || {};
 
   return (
     <DonatePage>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <Type el="h2">Your Receipt</Type>
       <Type>Date: {user.date}</Type>
       <Type>Amount: ${user.amount}</Type>
