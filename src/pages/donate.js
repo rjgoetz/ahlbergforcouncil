@@ -68,6 +68,7 @@ const Donate = () => {
   };
 
   const submitPayment = (details) => {
+    console.log(details);
     const { payer, update_time, id } = details;
     const user = {
       firstName: payer.name.given_name,
