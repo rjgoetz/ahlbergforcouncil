@@ -55,8 +55,9 @@ const MyApproach = () => (
 
           <Type el="ul" bullets>
             <li>
-              How are new developments improving current and future resident
-              quality of life?
+              How are we maintaining public safety and supporting our valued
+              police and first responder communities during this time of
+              increasing density?
             </li>
 
             <li>
