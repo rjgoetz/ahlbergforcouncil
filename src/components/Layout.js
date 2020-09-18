@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Theme from 'Styles/Theme';
 import GlobalStyle from 'Styles/GlobalStyle';
+import Aside from 'Components/Aside';
 import Header from 'Components/Header';
 import Navigation from 'Components/Navigation';
 import Footer from 'Components/Footer';
@@ -25,6 +26,7 @@ const Layout = ({ children, banner, title }) => {
       </Helmet>
       <GlobalStyle></GlobalStyle>
 
+      <Aside></Aside>
       <Header></Header>
       <Navigation></Navigation>
       {banner}
