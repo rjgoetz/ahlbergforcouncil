@@ -31,9 +31,9 @@ const Aside = () => {
       <Container>
         <Row>
           <Column>
-            <RollingText size="sm" weight="medium">
+            <RollingText size="xs" weight="medium">
               <Anchor href="/#video">
-                Watch League of Women Voters Candidate Forum
+                League of Women Voters Candidate Forum &gt;
               </Anchor>
             </RollingText>
           </Column>
