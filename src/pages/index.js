@@ -11,13 +11,18 @@ import SuggestionForm from 'Components/SuggestionForm';
 import { StaticQuery, graphql } from 'gatsby';
 
 const VideoBox = styled.div`
-  height: 300px;
+  height: 301px;
   width: 100%;
   @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-    height: 400px;
+    height: 338px;
   }
   @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-    height: 500px;
+    height: 428px;
+  }
+  @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
+    margin: 0 auto;
+    width: 720px;
+    height: 405px;
   }
 `;
 
@@ -97,7 +102,11 @@ const IndexPage = () => (
 
     <Section>
       <Row>
-        <Column sm={{ column: 10, offset: 1 }} md={{ column: 8, offset: 2 }}>
+        <Column
+          sm={{ column: 10, offset: 1 }}
+          md={{ column: 8, offset: 2 }}
+          xl={{ column: 10, offset: 1 }}
+        >
           <a name="video">
             <Type
               el="h2"
@@ -108,18 +117,19 @@ const IndexPage = () => (
                 line-height: ${(props) => props.theme.rhythm(8)};
               `}
             >
-              See Me in Action in the League of Women Voters Candidate Forum
+              Watch Me at the League of Women Voters Candidate Forum
             </Type>
           </a>
 
           <VideoBox>
-            <embed
-              height="100%"
+            <iframe
               width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/1OfgH7PwcUU"
               frameBorder="0"
-              allowFullScreen={true}
-              src="//edina.granicus.com/player/clip/3239?view_id=7&redirect=true&stoptime=6144&autostart=1&embed=1"
-            ></embed>
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </VideoBox>
         </Column>
       </Row>
