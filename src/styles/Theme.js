@@ -10,6 +10,7 @@ const theme = {
     red: '#D50000',
     ltRed: `${lighten(0.5, '#D50000')}`,
     ltGrey: '#eceff1',
+    yellow: '#ffd449',
     white: '#fff',
   },
 

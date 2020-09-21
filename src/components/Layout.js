@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Theme from 'Styles/Theme';
 import GlobalStyle from 'Styles/GlobalStyle';
+import Aside from 'Components/Aside';
 import Header from 'Components/Header';
 import Navigation from 'Components/Navigation';
 import Footer from 'Components/Footer';
@@ -20,11 +21,12 @@ const Layout = ({ children, banner, title }) => {
         )}
         <meta
           name="description"
-          content="Sensible. Open. Accountable. Vote for Joshua Ahlberg for Edina City Council this Fall 2020."
+          content="Vote for Joshua Ahlberg, 2020 Candidate for Edina City Council. Sensible. Open. Accountable."
         />
       </Helmet>
       <GlobalStyle></GlobalStyle>
 
+      <Aside></Aside>
       <Header></Header>
       <Navigation></Navigation>
       {banner}

@@ -2,7 +2,7 @@
   "name": "ahlbergforcouncil",
   "private": true,
   "description": "Campaign website for Joshua Ahlberg",
-  "version": "0.2.0",
+  "version": "2.0.0",
   "author": "RJ Goetz",
   "dependencies": {
     "@styled-icons/feather": "^10.18.0",

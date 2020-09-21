@@ -129,7 +129,7 @@ const Donate = () => {
                 onSuccess={(details) => {
                   submitPayment(details);
                 }}
-                options={{ clientId }}
+                options={{ clientId, disableFunding: 'credit' }}
               ></PayPalButton>
             </>
           )}
