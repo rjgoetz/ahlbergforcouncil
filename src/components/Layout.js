@@ -21,7 +21,7 @@ const Layout = ({ children, banner, title }) => {
         )}
         <meta
           name="description"
-          content="Sensible. Open. Accountable. Vote for Joshua Ahlberg for Edina City Council this Fall 2020."
+          content="Vote for Joshua Ahlberg, 2020 Candidate for Edina City Council. Sensible. Open. Accountable."
         />
       </Helmet>
       <GlobalStyle></GlobalStyle>

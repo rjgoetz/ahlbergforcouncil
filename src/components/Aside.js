@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Column } from 'Components/Grid';
 import Type from 'Components/Type';
-import Link from 'Components/Link';
 
 const StyledAside = styled.aside`
   background: ${(props) => props.theme.colors.yellow};
