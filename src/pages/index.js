@@ -7,24 +7,9 @@ import Type from 'Components/Type';
 import BigNumber from 'Components/BigNumber';
 import Section from 'Components/Section';
 import Link from 'Components/Link';
+import VideoBox from 'Components/VideoBox';
 import SuggestionForm from 'Components/SuggestionForm';
 import { StaticQuery, graphql } from 'gatsby';
-
-const VideoBox = styled.div`
-  height: 301px;
-  width: 100%;
-  @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
-    height: 338px;
-  }
-  @media screen and (min-width: ${(props) => props.theme.viewPort.md}) {
-    height: 428px;
-  }
-  @media screen and (min-width: ${(props) => props.theme.viewPort.xl}) {
-    margin: 0 auto;
-    width: 720px;
-    height: 405px;
-  }
-`;
 
 const HomeBanner = (
   <StaticQuery
@@ -130,6 +115,10 @@ const IndexPage = () => (
               src="//edina.granicus.com/player/clip/3239?view_id=7&redirect=true&stoptime=6144&autostart=0&embed=1"
             ></embed>
           </VideoBox>
+
+          <Type align="center">
+            <Link to="/media">More Media &gt;</Link>
+          </Type>
         </Column>
       </Row>
     </Section>

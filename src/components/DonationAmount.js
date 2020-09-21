@@ -23,7 +23,7 @@ const DonationAmount = ({
 
   return (
     <>
-      <Type el="h2">Please complete</Type>
+      <Type el="h3">Please complete.</Type>
 
       {error && <ErrorBox>{error}</ErrorBox>}
 

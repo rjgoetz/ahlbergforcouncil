@@ -46,7 +46,7 @@ const H3 = styled.h3`
   color: ${(props) => props.theme.colors.black};
   font-size: ${(props) => props.theme.fontSize.md};
   font-weight: ${(props) => props.theme.fontWeight.medium};
-  line-height: ${(props) => props.theme.rhythm(3)};
+  line-height: ${(props) => props.theme.rhythm()};
   margin: 0 0 ${(props) => props.theme.rhythm(2)};
 
   ${(props) => props.custom && customText};
