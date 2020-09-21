@@ -122,14 +122,13 @@ const IndexPage = () => (
           </a>
 
           <VideoBox>
-            <iframe
+            <embed
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/1OfgH7PwcUU"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              allowFullScreen={true}
+              src="//edina.granicus.com/player/clip/3239?view_id=7&redirect=true&stoptime=6144&autostart=0&embed=1"
+            ></embed>
           </VideoBox>
         </Column>
       </Row>
