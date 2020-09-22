@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Row, Column } from 'Components/Grid';
 import Banner from 'Components/Banner';
 import Layout from 'Components/Layout';
@@ -116,7 +115,12 @@ const IndexPage = () => (
             ></embed>
           </VideoBox>
 
-          <Type align="center">
+          <Type
+            align="center"
+            css={`
+              margin-top: ${(props) => props.theme.rhythm(4)};
+            `}
+          >
             <Link to="/media">More Media &gt;</Link>
           </Type>
         </Column>

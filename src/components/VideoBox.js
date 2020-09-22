@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const VideoBox = styled.div`
   height: 301px;
-  margin-bottom: ${(props) => props.theme.rhythm()};
   width: 100%;
   @media screen and (min-width: ${(props) => props.theme.viewPort.sm}) {
     height: 338px;

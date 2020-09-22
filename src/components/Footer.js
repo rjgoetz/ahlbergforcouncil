@@ -79,6 +79,9 @@ const Footer = () => {
                   <Link to="/my-approach/">My Approach</Link>
                 </li>
                 <li>
+                  <Link to="/media/">Media</Link>
+                </li>
+                <li>
                   <Link to="/donate/">Donate</Link>
                 </li>
                 <li>
