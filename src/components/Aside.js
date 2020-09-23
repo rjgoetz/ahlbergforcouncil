@@ -21,6 +21,7 @@ const Anchor = styled.a`
   &:hover,
   &:focus {
     color: ${(props) => props.theme.colors.secondary};
+    outline-color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
