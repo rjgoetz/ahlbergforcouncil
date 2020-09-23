@@ -6,9 +6,7 @@ import Type from 'Components/Type';
 import Section from 'Components/Section';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Button from 'Components/Button';
 import Link from 'Components/Link';
-import { Play } from '@styled-icons/feather';
 import Modal from 'Components/Modal';
 
 const Media = ({ data }) => (
@@ -98,7 +96,12 @@ const Media = ({ data }) => (
               dignissim, id accumsan est posuere.
             </Type>
 
-            <Type>
+            <Type
+              css={`
+                line-height: ${(props) => props.theme.rhythm(5)};
+                margin-bottom: 0;
+              `}
+            >
               <Link
                 to="https://www.change.org/p/the-edina-city-council-keep-edina-s-braemar-green-and-safe"
                 external
@@ -126,7 +129,12 @@ const Media = ({ data }) => (
               dignissim, id accumsan est posuere.
             </Type>
 
-            <Type>
+            <Type
+              css={`
+                line-height: ${(props) => props.theme.rhythm(5)};
+                margin-bottom: 0;
+              `}
+            >
               <Link
                 to="https://www.startribune.com/edina-neighbors-get-a-sidewalk-on-busy-valley-view-road/386888981/"
                 external
