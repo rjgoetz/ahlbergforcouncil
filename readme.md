@@ -1,4 +1,4 @@
 # Ahlberg for Council
-## v2
+## v1
 
-Integrated Paypal Checkout with custom forms, emails, and receipts.
+Integrates Donate Button module from Paypal

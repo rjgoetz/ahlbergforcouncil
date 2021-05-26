@@ -1,142 +1,40 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Type from 'Components/Type';
+import React from 'react';
 import DonatePage from 'Components/DonatePage';
-import DonationAmount from 'Components/DonationAmount';
-import { navigate } from 'gatsby';
+import Type from 'Components/Type';
 
-import { PayPalButton } from 'react-paypal-button-v2';
-import Loader from 'Components/Loader';
-
-const clientId =
-  process.env.NODE_ENV === 'development'
-    ? process.env.GATSBY_CLIENT_ID_DEV
-    : process.env.GATSBY_CLIENT_ID;
-
-const StyledHr = styled.hr`
-  margin: ${(props) => props.theme.rhythm()} 0;
-`;
-
-const Donate = () => {
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [amount, setAmount] = useState(0);
-  const [occupation, setOccupation] = useState('');
-  const [isSingle, setIsSingle] = useState(true);
-  const [spouseName, setSpouseName] = useState('');
-  const [spouseOccupation, setSpouseOccupation] = useState('');
-  const [paymentReady, setPaymentReady] = useState(false);
-  const [redirect, setRedirect] = useState(false);
-  const [user, setUser] = useState({});
-
-  const paymentButtonClick = () => {
-    if (
-      isSingle
-        ? !occupation || !amount
-        : !occupation || !amount || !spouseName || !spouseOccupation
-    ) {
-      setError('Please complete all fields.');
-    } else if (
-      isSingle ? amount < 5 || amount > 600 : amount < 5 || amount > 1200
-    ) {
-      setError(
-        isSingle
-          ? 'Single donor amount must be greater than $5 and no more than $600.'
-          : 'Couple donor amount must be greater than $5 and no more than $1200.'
-      );
-    } else {
-      setError('');
-      setPaymentReady(true);
-    }
-  };
-
-  const handleChange = (e) => {
-    switch (e.target.name) {
-      case 'amount':
-        setAmount(parseInt(e.target.value));
-        break;
-      case 'occupation':
-        setOccupation(e.target.value);
-        break;
-      case 'spouseName':
-        setSpouseName(e.target.value);
-        break;
-      case 'spouseOccupation':
-        setSpouseOccupation(e.target.value);
-        break;
-    }
-  };
-
-  const submitPayment = (details) => {
-    console.log(details);
-    const { payer, update_time, id } = details;
-    const user = {
-      firstName: payer.name.given_name,
-      lastName: payer.name.surname,
-      spouseName,
-      spouseOccupation,
-      email: payer.email_address,
-      transactionId: id,
-      date: new Date(update_time).toLocaleDateString(),
-      occupation,
-      amount,
-    };
-
-    setUser(user);
-    setRedirect(true);
-  };
-
+const DonateNow = () => {
   return (
     <DonatePage>
-      {redirect ? (
-        navigate('/donate/success', {
-          state: { user },
-        })
-      ) : (
-        <>
-          {!paymentReady && (
-            <DonationAmount
-              isSingle={isSingle}
-              setIsSingle={setIsSingle}
-              handleChange={handleChange}
-              paymentButtonClick={paymentButtonClick}
-              error={error}
-            ></DonationAmount>
-          )}
+      <Type el="h2">Your Donation</Type>
 
-          {paymentReady && (
-            <>
-              <Type el="h2">Your Payment</Type>
-              <StyledHr></StyledHr>
-
-              {loading && (
-                <div
-                  css={`
-                    display: flex;
-                    margin-bottom: ${(props) => props.theme.rhythm()};
-                    justify-content: center;
-                  `}
-                >
-                  <Loader size="48"></Loader>
-                </div>
-              )}
-
-              <PayPalButton
-                amount={amount}
-                onButtonReady={() => {
-                  return setLoading(false);
-                }}
-                onSuccess={(details) => {
-                  submitPayment(details);
-                }}
-                options={{ clientId, disableFunding: 'credit' }}
-              ></PayPalButton>
-            </>
-          )}
-        </>
-      )}
+      <form
+        action="https://www.paypal.com/cgi-bin/webscr"
+        method="post"
+        target="_top"
+      >
+         <input type="hidden" name="cmd" value="_s-xclick" />
+         <input type="hidden" name="hosted_button_id" value="YUYF7ZUFXLFGG" />
+         
+        <input
+          type="image"
+          src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+          border="0"
+          name="submit"
+          title="PayPal - The safer, easier way to pay online!"
+          alt="Donate with PayPal button"
+        />
+         
+        <img
+          alt=""
+          border="0"
+          src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+          width="1"
+          height="1"
+        />
+         
+      </form>
     </DonatePage>
   );
 };
 
-export default Donate;
+export default DonateNow;
